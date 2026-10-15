@@ -1,0 +1,132 @@
+From 945139fb48f2e8892af47afa4d16de4230e29978 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 15 Oct 2026 11:12:33 +0000
+Subject: [PATCH] Neues Logo: Favicon, Apple-Touch-Icon, Wortmarke sherka. in
+ der Navigation
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01J32dSyAYcgb7jbdXkEddWj
+---
+ index.html                  |   1 +
+ public/apple-touch-icon.png | Bin 0 -> 2535 bytes
+ public/favicon.svg          |   7 +------
+ src/components/Nav.css      |   6 ++++++
+ src/components/Nav.tsx      |   4 ++--
+ 5 files changed, 10 insertions(+), 8 deletions(-)
+ create mode 100644 public/apple-touch-icon.png
+
+diff --git a/index.html b/index.html
+index 0946663..d1fec1d 100644
+--- a/index.html
++++ b/index.html
+@@ -22,6 +22,7 @@
+     <meta name="twitter:card" content="summary_large_image" />
+ 
+     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
++    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+ 
+     <script type="application/ld+json">
+       {
+diff --git a/public/apple-touch-icon.png b/public/apple-touch-icon.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..5a6c62e4c110fcd2401d1c1ad0e1003fb73e2b11
+GIT binary patch
+literal 2535
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/public/favicon.svg b/public/favicon.svg
+index 5939c2f..05bd9da 100644
+--- a/public/favicon.svg
++++ b/public/favicon.svg
+@@ -1,6 +1 @@
+-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+-  <rect width="64" height="64" fill="#0C0F10"/>
+-  <text x="32" y="46" text-anchor="middle"
+-        font-family="Archivo, Helvetica Neue, Arial, sans-serif"
+-        font-size="44" font-weight="800" fill="#F1F3F4">S</text>
+-</svg>
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="100%" height="100%" fill="#14131C"/><g id="icon" transform="translate(-39 0)"><path d="M286.0 96.0A120.0 80.0 0 0 0 286.0 256.0ZM226.0 256.0A120.0 80.0 0 0 1 226.0 416.0Z" fill="#F0F1F3"/><circle cx="392" cy="384" r="32" fill="#FFA51E"/></g></svg>
+diff --git a/src/components/Nav.css b/src/components/Nav.css
+index 3138535..8f90f36 100644
+--- a/src/components/Nav.css
++++ b/src/components/Nav.css
+@@ -26,6 +26,12 @@
+   letter-spacing: -0.035em;
+   text-decoration: none;
+ }
++/* Der Punkt aus dem Logo. Auf Hellgrau verblasst --amber, deshalb dort der tiefere Ton. */
++.marke-punkt { color: var(--amber-tief); }
++@media (prefers-color-scheme: dark) {
++  :root:not([data-theme="hell"]) .marke-punkt { color: var(--amber); }
++}
++:root[data-theme="dunkel"] .marke-punkt { color: var(--amber); }
+ 
+ .nav-links { display: flex; gap: 1.75rem; }
+ .nav-links a {
+diff --git a/src/components/Nav.tsx b/src/components/Nav.tsx
+index 785a596..1e9ed26 100644
+--- a/src/components/Nav.tsx
++++ b/src/components/Nav.tsx
+@@ -47,8 +47,8 @@ export function Nav() {
+   return (
+     <header className={gescrollt ? "nav nav-fest" : "nav"}>
+       <div className="shell nav-inhalt">
+-        <a className="marke" href="#oben">
+-          Sherka
++        <a className="marke" href="#oben" aria-label="Sherka">
++          sherka<span className="marke-punkt">.</span>
+         </a>
+ 
+         <nav className="nav-links" aria-label="Navigation">
+-- 
+2.43.0
+

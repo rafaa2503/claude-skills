@@ -3,7 +3,7 @@
 import numpy as np, subprocess, wave, os
 SR=44100; DUR=20.0; n=int(SR*DUR); rng=np.random.default_rng(8)
 def load(f,t0=0.0,d=None):
-    cmd=["ffmpeg","-v","error","-ss",str(t0)]+(["-t",str(d)] if d else [])+["-i",f"sfx/{f}","-ac","1","-ar",str(SR),"-f","f32le","-"]
+    cmd=["ffmpeg","-v","error","-ss",str(t0)]+(["-t",str(d)] if d else [])+["-i",f"sfx/{f}","-af","lowpass=f=4500","-ac","1","-ar",str(SR),"-f","f32le","-"]
     return np.frombuffer(subprocess.run(cmd,capture_output=True).stdout,dtype=np.float32).astype(np.float64)
 L=np.zeros(n); R=np.zeros(n)
 def add(x,t,g=1.0,pan=0.0,fade=0.005):
@@ -22,22 +22,21 @@ def tick_run(t0,t1,g0,g1):
         seg=tick[:min(len(tick),int((t1-t)*SR))]; g=g0+(g1-g0)*(t-t0)/(t1-t0)
         add(seg,t,g,fade=0.02); t+=len(tick)/SR-0.02
 # 1) Uhr laeuft 0 - 9.55 (Spannung steigt), Phone-Slide-Whoosh
-tick_run(0.0,9.55,0.45,0.8); add(load("whoosh.mp3",0,0.9),1.95,0.35,fade=0.2)
+tick_run(0.2,2.0,0.22,0.22); add(load("whoosh.mp3",0,0.9),1.95,0.25,fade=0.2)
 # 2) Button-Klacks + kleine Melodie (D-Dur-Pentatonik)
 for i,(t,m) in enumerate(zip([5.6,6.6,7.6,8.6],[74,76,78,81])):
-    add(load("click.mp3",0,0.5),t,0.9,pan=(-0.4+0.27*i)); add(bell(mid(m),0.9,0.55),t+0.02,1.0,pan=(-0.4+0.27*i))
+    add(load("click.mp3",0,0.5),t,0.45,pan=(-0.4+0.27*i)); add(bell(mid(m),0.9,0.3),t+0.02,1.0,pan=(-0.4+0.27*i))
 # 3) Stopp + Erfolg
-add(load("stop.mp3",0,1.2),9.6,1.0); add(load("chime.mp3"),9.72,0.55)
+add(load("stop.mp3",0,1.0),9.6,0.6); add(load("chime.mp3"),9.72,0.3)
 # 4) Suspense: zweite Uhr + Drohnen 10.9 - 14.25, dann harter Schnitt in Stille
-tick_run(10.9,14.25,0.5,0.95)
-t=np.arange(int(3.4*SR))/SR; drone=(np.sin(2*np.pi*55*t)+0.5*np.sin(2*np.pi*82.4*t))*np.linspace(0.02,0.16,len(t)); add(drone,10.9,1.0,fade=0.3)
+tick_run(11.2,14.2,0.16,0.16)
 # 5) CTA: Einschlag, Akkord, Marimba-Arpeggio
-add(load("impact.mp3"),14.9,1.0); add(load("chime.mp3"),15.15,0.6)
-for m,g in zip([50,57,62,66,69],[.2,.16,.16,.14,.12]):
+add(load("impact.mp3"),14.9,0.5); add(load("chime.mp3"),15.15,0.35)
+for m,g in zip([50,57,62,66,69],[.12,.09,.09,.08,.07]):
     tt=np.arange(int(5.0*SR))/SR; add(np.sin(2*np.pi*mid(m)*tt)*np.exp(-tt*0.7)*g,14.9,1.0,fade=0.02)
 arp=[62,66,69,74,69,66]; tcur=15.5
-for k in range(14):
-    add(bell(mid(arp[k%6]+12),0.8,0.4,6.0),tcur+k*0.3,1.0,pan=(-1)**k*0.3)
+for k in range(8):
+    add(bell(mid(arp[k%6]+12),0.8,0.22,6.0),tcur+k*0.45,1.0,pan=(-1)**k*0.3)
 # 6) optionale Stimme
 VO_PLAN=[]   # [(datei, start_in_datei, ende_in_datei, ziel_sekunde)] nach silencedetect fuellen
 VL=np.zeros(n)
@@ -47,4 +46,4 @@ env=np.convolve(np.abs(VL),np.ones(int(0.12*SR))/int(0.12*SR),mode="same"); duck
 mix=np.stack([L*duck+VL*1.4,R*duck+VL*1.4],1); mix[-int(0.6*SR):]*=np.linspace(1,0,int(0.6*SR))[:,None]
 mix=mix/np.max(np.abs(mix))*0.9
 with wave.open("mix.wav","wb") as w: w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix*32767).astype("<i2").tobytes())
-subprocess.run(["ffmpeg","-y","-loglevel","error","-i","mix.wav","-af","loudnorm=I=-14:TP=-1.5:LRA=9","-ar","44100","-c:a","libmp3lame","-b:a","192k","hf/assets/audio.mp3"]); os.remove("mix.wav"); print("fertig")
+subprocess.run(["ffmpeg","-y","-loglevel","error","-i","mix.wav","-af","loudnorm=I=-16:TP=-1.5:LRA=9","-ar","44100","-c:a","libmp3lame","-b:a","192k","hf/assets/audio.mp3"]); os.remove("mix.wav"); print("fertig")

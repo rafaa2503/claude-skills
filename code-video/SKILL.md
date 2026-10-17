@@ -119,3 +119,11 @@ Idea where sound carries the story: silence (dead site, wind) -> build (keyboard
 - Honesty: notification scenes must be framed as illustration ("Stell dir vor", "Illustration" label). No real inquiry counts.
 - Free tier note: a flagged free ElevenLabs account refused some takes ("Free Tier access disabled"): a paid plan fixes it; never retry a failed generation call (it is charged again).
 - Never use a raw API key pasted in chat: the security check blocks it; use the connector and tell the user to rotate the key.
+
+## 10. Proof-based concepts (reference: `templates/handytest_reel/`, Sherka v8 "Handy-Test")
+Lesson from two rejected scripts (abstract/hypothetical): a reel from an unknown agency needs a **checkable proof on screen** and an **action for the viewer** ("Öffne deine Website. Jetzt."). Marketing agent verdict: hook = command, proof = a real client site (with the client's OK), ending = "Bei deiner?" + small next step.
+- Measure before you claim: real mobile-viewport check (Playwright, `locale: de-CH`, 390x844) confirmed the call/route/order/menu bar is above the fold. Load times swung 1.7 s to 13.8 s in the sandbox, so **no seconds on screen** (a bar without digits instead).
+- Screenshot the site in the viewer's language (`locale`, `Accept-Language`), not the default English.
+- Layout: text zone y 230-480, progress bar y 500, phone y 540-1508; keep anything important out of the bottom ~400 px.
+- Sound carries tension: looped stopwatch tick (ElevenLabs SFX), a "klack" per highlighted button, stop-klack at the end, drone + tick continues on the empty screen, hard cut to silence, then impact + music for the CTA.
+- Voice is optional: `make_sound.py` takes `VO_PLAN` entries after `silencedetect`; without it the on-screen captions carry the message (most viewers watch muted).

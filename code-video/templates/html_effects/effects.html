@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=1080,height=1920">
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#08090c}canvas{display:block}</style></head><body>
+<script src="vendor/pixi.min.js"></script><script src="vendor/pixi-filters.js"></script>
+<script src="vendor/anime.min.js"></script><script src="vendor/matter.min.js"></script>
+<script src="vendor/orb.js"></script><script src="vendor/brush.js"></script>
+<script>
+/* "Effekte"-Variante: PixiJS-Filter (Glitch, Bulge, Crosshatch, ASCII, Glow) + Anime.js + p5.brush + thinking-orbs + Matter.js.
+   Vertrag: window.renderAt(t) = reine Funktion von t. Math.random wird pro Bild deterministisch gesetzt. */
+let _s=1;Math.random=()=>{_s=(_s*1664525+1013904223)>>>0;return _s/4294967296};
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),seg=(t,a,b)=>clamp((t-a)/(b-a));
+const sst=x=>{x=clamp(x);return x*x*x*(x*(6*x-15)+10)},eo=x=>1-Math.pow(1-clamp(x),3);
+const eback=(x,k=1.9)=>{x=clamp(x);return 1+(k+1)*Math.pow(x-1,3)+k*Math.pow(x-1,2)},lerp=(a,b,u)=>a+(b-a)*u;
+const OR=0xff9f1c,ORL=0xffcd78,ORD=0xc66e00,WH=0xf5f5f7,GR=0x969ea8,CARD=0x13171c,EDGE=0x37464f,BL=0x0a6fe0;
+const A=[4.2,7.2,10.2,13.2],HIT=21.6,W0=18.6;
+const app=new PIXI.Application({width:1080,height:1920,backgroundColor:0x08090c,antialias:true,autoStart:false,preserveDrawingBuffer:true});
+document.body.appendChild(app.view);
+const F=PIXI.filters;
+const root=new PIXI.Container();root.filterArea=new PIXI.Rectangle(0,0,1080,1920);app.stage.addChild(root);
+const mkText=(s,size,fill=WH,weight='800')=>{const t=new PIXI.Text(s,{fontFamily:'Inter',fontWeight:weight,fontSize:size,fill,align:'center'});t.anchor.set(.5);return t};
+const rr=(w,h,r,fill,stroke)=>{const g=new PIXI.Graphics();if(stroke)g.lineStyle(3,stroke);g.beginFill(fill).drawRoundedRect(-w/2,-h/2,w,h,r).endFill();return g};
+const circ=(r,fill)=>{const g=new PIXI.Graphics();g.beginFill(fill).drawCircle(0,0,r).endFill();return g};
+// Hintergrund-Glow
+{const c=document.createElement('canvas');c.width=1080;c.height=1920;const x=c.getContext('2d');const g=x.createRadialGradient(540,1000,0,540,1000,1000);g.addColorStop(0,'#1b1710');g.addColorStop(1,'#08090c');x.fillStyle=g;x.fillRect(0,0,1080,1920);root.addChild(new PIXI.Sprite(PIXI.Texture.from(c)))}
+// ---------- Master-Zeitleiste (Anime.js) ----------
+const S={};const tl=anime.timeline({autoplay:false});
+function reveal(key,at,dur=380,dy=36){S[key]={y:dy,a:0,s:.85};tl.add({targets:S[key],y:0,a:1,s:1,duration:dur,easing:'easeOutCubic'},at*1000)}
+reveal('hook1',.5);reveal('hook2',.7);
+['Wir','bauen','sie.','Du','entscheidest.'].forEach((w,i)=>reveal('i'+i,2.1+i*.12,380,40));
+for(let k=0;k<4;k++){reveal('t'+k,A[k]+.05);reveal('u'+k,A[k]+.25)}
+// ---------- Hook ----------
+const hook=new PIXI.Container();root.addChild(hook);
+const hookTop=mkText('Noch keine Website,',96),hookBot=mkText('die Kunden bringt?',96,OR);hookTop.position.set(540,1230);hookBot.position.set(540,1340);hook.addChild(hookTop,hookBot);
+const glitch=new F.GlitchFilter({slices:14,offset:0,direction:0,fillMode:2,average:false,red:[-8,0],green:[8,0],blue:[0,6]});hook.filters=[glitch];hook.filterArea=new PIXI.Rectangle(0,1050,1080,450);
+const bulge=new F.BulgePinchFilter({center:[.5,.52],radius:800,strength:0});
+const dotG=new PIXI.Container();root.addChild(dotG);const dotBody=circ(100,OR),dotHi=circ(100,ORL);dotHi.alpha=.55;dotG.addChild(dotBody,dotHi);
+const shards=[...Array(18)].map(()=>{const g=circ(1,OR);root.addChild(g);return g});
+const strands=[...Array(14)].map(()=>{const g=new PIXI.Graphics();root.addChild(g);return g});
+// ---------- Intro ----------
+const intro=new PIXI.Container();root.addChild(intro);
+const introW=['Wir','bauen','sie.','Du','entscheidest.'].map((w,i)=>{const t=mkText(w,84);intro.addChild(t);return t});
+{const GAP=26;[[0,1,2],[3,4]].forEach((ids,li)=>{const tot=ids.reduce((a,i)=>a+introW[i].width,0)+GAP*(ids.length-1);let x=540-tot/2;ids.forEach(i=>{introW[i].x=x+introW[i].width/2;x+=introW[i].width+GAP;introW[i].baseY=li?660:540;introW[i].y=introW[i].baseY})})}
+// ---------- Stationstitel ----------
+const TT=[['Erstgespräch','Kostenlos. Unverbindlich.'],['Entwurf','Du siehst ihn. Du kommentierst.'],['Freigabe','Online geht nur, was du freigibst'],['Online','Die Domain gehört dir.']];
+const titles=TT.map(([a,b],k)=>{const c=new PIXI.Container();const num=circ(38,OR);const nt=mkText(String(k+1),46,0xffffff);num.addChild(nt);
+  const tt=mkText(a,92);const w=tt.width+100;num.position.set(-w/2+38,0);tt.position.set(38+50,0);const sub=mkText(b,44,GR,'500');sub.position.set(0,92);c.addChild(num,tt,sub);c.position.set(540,300);root.addChild(c);
+  return {c,tt,sub}});
+// ---------- ST1: Orb ----------
+const orbC=document.createElement('canvas');orbC.width=orbC.height=300;const orbX=orbC.getContext('2d');const orbTex=PIXI.Texture.from(orbC);
+const orbS=new PIXI.Sprite(orbTex);orbS.anchor.set(.5);orbS.scale.set(2.4);orbS.position.set(540,880);root.addChild(orbS);
+const orbCap=mkText('Antwort innert eines Werktags',46,GR,'500');orbCap.position.set(540,1230);root.addChild(orbCap);
+const orbPre=ORB.resolvePreset('composing',64);
+function drawOrb(t){orbX.clearRect(0,0,300,300);const fr=ORB.MODE_FRAMES[orbPre.mode](300,t*orbPre.speed,orbPre.opts);ORB.paintFrame(orbX,fr,true,{r:255,g:159,b:28});orbTex.baseTexture.update()}
+// ---------- ST2: Handy (Crosshatch -> fertig) ----------
+const phone=new PIXI.Container();root.addChild(phone);
+const frameG=rr(436,820,56,0x32323a);phone.addChild(frameG);
+function phoneSprite(){const sp=PIXI.Sprite.from('assets/bledi.png');sp.scale.set(416/860);sp.position.set(-208,-400);const m=new PIXI.Graphics().beginFill(0xffffff).drawRoundedRect(-208,-400,416,800,44).endFill();const c=new PIXI.Container();c.addChild(sp,m);c.mask=m;return {c,sp}}
+const phA=phoneSprite(),phB=phoneSprite();phA.sp.filters=[new F.CrossHatchFilter()];phone.addChild(phA.c,phB.c);
+const phRef=mkText('bledi-bienne.ch',40,GR,'700');phRef.position.set(0,452);phone.addChild(phRef);
+const pin=new PIXI.Container();const pinBg=rr(300,72,36,OR),pinTx=mkText('Button grösser?',34,0x1e1400);pin.addChild(pinBg,pinTx);pin.position.set(150,-160);phone.addChild(pin);
+// ---------- ST3: Freigabe ----------
+const appr=new PIXI.Container();root.addChild(appr);
+appr.addChild(rr(780,560,48,CARD,EDGE));
+const apT=mkText('Entwurf bereit',62);apT.position.set(0,-170);const apS=mkText('Passt alles so?',40,GR,'500');apS.position.set(0,-100);
+const btn=new PIXI.Container();btn.addChild(rr(460,90,45,0x064ea0),rr(460,90,45,BL));btn.children[0].y=10;const btT=mkText('Freigeben',44);btn.addChild(btT);btn.position.set(0,150);
+const prev=rr(540,140,22,0x1e2c34);prev.position.set(0,-10);
+const okG=new PIXI.Container();okG.addChild(circ(100,ORD),circ(100,OR));okG.children[0].y=12;okG.position.set(0,-80);
+const okT=mkText('Freigegeben',66);okT.position.set(0,110);const okS=mkText('Jetzt gehen wir online.',38,GR,'500');okS.position.set(0,172);
+appr.addChild(apT,apS,prev,btn,okG,okT,okS);appr.position.set(540,900);
+const glow=new F.GlowFilter({distance:28,outerStrength:3,innerStrength:0,color:OR,quality:.3});okG.filters=[glow];
+// ---------- ST4: Laptop (ASCII -> fertig) ----------
+const lap=new PIXI.Container();root.addChild(lap);
+lap.addChild(rr(764,494,24,0x2e2e34));
+function lapSprite(){const sp=PIXI.Sprite.from('assets/zahnarzt.png');sp.scale.set(.5);sp.position.set(-360,-225);return sp}
+const lapA=lapSprite(),lapB=lapSprite();lapA.filters=[new F.AsciiFilter(14)];lap.addChild(lapA,lapB);
+const lapBase=rr(840,26,12,0xc4c4cc);lapBase.position.set(0,272);lap.addChild(lapBase);
+const pill=new PIXI.Container();pill.addChild(rr(210,68,34,0x16222a,0x3cbe5a),circ(10,0x3cdc64),mkText('Online',36));pill.children[1].position.set(-56,0);pill.children[2].position.set(16,0);pill.position.set(0,-300);lap.addChild(pill);
+const chip=new PIXI.Container();chip.addChild(rr(500,72,36,0x16222a,EDGE));const chA=mkText('deine-firma.ch',36);chA.position.set(-80,0);const chB=mkText('gehört dir',32,OR,'500');chB.position.set(140,0);chip.addChild(chA,chB);chip.position.set(0,350);lap.addChild(chip);
+const lapRef=mkText('bern-zahnarzt-team.ch',40,GR,'700');lapRef.position.set(0,430);lap.addChild(lapRef);
+lap.position.set(540,860);
+// ---------- Rückblick 16.2-18.6 ----------
+const recap=new PIXI.Container();root.addChild(recap);
+const recapLine=new PIXI.Graphics();recap.addChild(recapLine);
+const recapItems=['Erstgespräch','Entwurf','Freigabe','Online'].map((n,k)=>{const c=new PIXI.Container();const dot=new PIXI.Container();dot.addChild(circ(46,ORD),circ(46,OR));dot.children[0].y=8;dot.addChild(mkText(String(k+1),46,0xffffff));dot.position.set(-250,0);
+  const tx=mkText(n,84);tx.anchor.set(0,.5);tx.position.set(-170,0);c.addChild(dot,tx);c.position.set(540,640+k*210);recap.addChild(c);c.filters=[new F.GlowFilter({distance:20,outerStrength:0,color:OR,quality:.3})];return c});
+// ---------- Wortkarten (Matter.js) ----------
+const {Engine,Bodies,Composite}=Matter;const engine=Engine.create({gravity:{y:1.6}});
+Composite.add(engine.world,[Bodies.rectangle(540,1240,1200,60,{isStatic:true}),Bodies.rectangle(-30,900,60,2400,{isStatic:true}),Bodies.rectangle(1110,900,60,2400,{isStatic:true})]);
+const WORDS=[['Mehr',0,W0+.15],['Kunden.',1,W0+.55],['Weniger',0,W0+.95],['Aufwand.',1,W0+1.35]];
+const cards=WORDS.map(([txt,hot,t0],i)=>{const w=txt.length*62+90,h=150;const c=new PIXI.Container();c.addChild(rr(w,h,34,hot?OR:CARD,hot?ORD:EDGE));c.addChild(mkText(txt,96,hot?0x201400:WH));root.addChild(c);c.visible=false;
+  const b=Bodies.rectangle(300+((i*397)%480),-200,w,h,{restitution:.25,friction:.6,chamfer:{radius:30},angle:(i%2?1:-1)*.18});return{c,b,t0,added:false}});
+let simT=0;function stepTo(t){while(simT<t-1e-9){for(const c of cards)if(!c.added&&simT>=c.t0){Composite.add(engine.world,c.b);c.added=true}Engine.update(engine,1000/60);simT+=1/60}}
+// ---------- Hero ----------
+const hero=new PIXI.Container();root.addChild(hero);
+const icon=PIXI.Sprite.from('assets/icon-crop.png');icon.anchor.set(.5);icon.scale.set(300/640);icon.position.set(540,620);icon.filters=[new F.GlowFilter({distance:24,outerStrength:2.5,color:OR,quality:.3})];
+const uA=mkText('sherka',124),uB=mkText('.ch',124,OR);
+const ctaB=new PIXI.Container();ctaB.addChild(rr(700,130,65,0x064ea0),rr(700,130,65,BL),mkText('Erstgespräch anfragen',54));ctaB.children[0].y=12;ctaB.position.set(540,1330);
+const c1=mkText('Kostenlos und unverbindlich',44,GR,'500');c1.position.set(540,1495);const c2=mkText('Link in der Bio',44,OR);c2.position.set(540,1565);
+const ring=new PIXI.Graphics();const fall=circ(30,OR);
+hero.addChild(icon,uA,uB,ctaB,c1,c2,ring,fall);
+let ulS=null,ulMask=new PIXI.Graphics();let circS=null,okMarkS=null;
+// ---------- p5.brush Assets ----------
+window.READY=false;
+(async()=>{
+  const grab=async(w,h,draw)=>{const c=brush.createCanvas(w,h);brush.clear&&brush.clear();draw();brush.render();const url=c.toDataURL('image/png');const im=new Image();im.src=url;await im.decode();return PIXI.Texture.from(im)};
+  brush.seed(11);
+  const t1=await grab(520,220,()=>{brush.noFill();brush.set('marker','#ff9f1c',1.7);brush.circle(0,0,90);brush.circle(6,-4,94)});
+  brush.seed(5);
+  const t2=await grab(420,320,()=>{brush.noFill();brush.set('marker','#ffffff',2.4);brush.line(-110,10,-30,100);brush.line(-30,100,130,-95)});
+  brush.seed(9);
+  const t3=await grab(760,120,()=>{brush.set('marker','#ff9f1c',2.2);brush.line(-320,5,320,-8);brush.set('2B','#ffcd78',1.2);brush.line(-300,18,300,6)});
+  circS=new PIXI.Sprite(t1);circS.anchor.set(.5);phone.addChild(circS);circS.position.set(-120,60);
+  okMarkS=new PIXI.Sprite(t2);okMarkS.anchor.set(.5);okMarkS.scale.set(.5);okG.addChild(okMarkS);
+  ulS=new PIXI.Sprite(t3);ulS.anchor.set(.5);ulS.position.set(540,1010);hero.addChild(ulS);ulS.mask=ulMask;hero.addChild(ulMask);
+  window.READY=true;window.renderAt(0);
+})();
+const vis=(o,v)=>{o.visible=v};
+window.renderAt=function(t){
+  _s=(Math.floor(t*30)*7919+13)>>>0;
+  stepTo(t);tl.seek(t*1000);
+  const shake=(t>.17&&t<.9)?26*Math.exp(-(t-.17)*9)*Math.sin((t-.17)*70):0;root.position.set(shake,shake*.7);
+  // Bulge beim Einschlag
+  const bs=(t>.15&&t<.7)?.55*Math.exp(-(t-.17)*7):0;bulge.strength=bs;root.filters=bs>.02?[bulge]:null;
+  // Punkt
+  let r,x,y,sx=1,sy=1;
+  if(t<.17){r=6+(470-6)*Math.pow(t/.17,3);x=540;y=1000}
+  else if(t<2.4){const m=sst((t-.45)/.8);r=lerp(470,22,m);x=lerp(540,540,m);y=lerp(1000,938,m);const q=(t-.17)/.3;if(q<1){const k=1+.4*Math.sin(Math.PI*q)*Math.exp(-1.5*q);sx=k;sy=1/k}}
+  else{r=22;x=540+210*Math.sin(2*Math.PI*(t-2.4)/3.5)*seg(t,2.4,3.2);y=938+ (t-2.4)*0}
+  dotG.visible=t<A[0]+.1&&t<HIT-.6;dotBody.scale.set(r/100*sx,r/100*sy);dotHi.scale.set(r/100*.4*sx,r/100*.28*sy);dotHi.position.set(-r*.28,-r*.34);dotG.position.set(x,y);
+  if(t>=2.4){dotG.position.set(540+160*Math.sin(2*Math.PI*(t-2.4)/4),938+(t-2.4)*420);dotG.visible=t<A[0]-.1}
+  // Strähnen und Splitter
+  strands.forEach((g,i)=>{g.clear();if(t>=.17)return;const ang=(i*2.399)%(2*Math.PI),s0=1500-1350*Math.pow(t/.17,1.5)+(i%5)*40,ln=260+(i%4)*60;g.lineStyle(5,ORL,.9).moveTo(540+Math.cos(ang)*s0,1000+Math.sin(ang)*s0*1.2).lineTo(540+Math.cos(ang)*(s0+ln),1000+Math.sin(ang)*(s0+ln)*1.2)});
+  shards.forEach((g,i)=>{const tt=t-.17;if(tt<0||tt>.63){g.visible=false;return}g.visible=true;const ang=(i*2.399+.7)%(2*Math.PI),v=500+(i%6)*100,sz=8+(i%5)*3;g.scale.set(sz);g.alpha=1-tt/.63;g.position.set(540+Math.cos(ang)*v*tt,1000+Math.sin(ang)*v*tt+900*tt*tt)});
+  // Hook
+  const ha=1-sst((t-1.9)/.25);hook.visible=t<2.2;hookTop.alpha=S.hook1.a*ha;hookTop.y=1230+S.hook1.y;hookBot.alpha=S.hook2.a*ha;hookBot.y=1340+S.hook2.y;
+  glitch.offset=t>.4?70*Math.exp(-(t-.45)*2.2):0;glitch.slices=14;glitch.refresh&&glitch.refresh();
+  // Intro
+  intro.visible=t>2&&t<4;introW.forEach((w,i)=>{const o=S['i'+i];w.alpha=o.a*(1-sst((t-3.6)/.3));w.y=w.baseY+o.y;w.scale.set(o.s)});
+  // Titel
+  titles.forEach((o,k)=>{const on=t>=A[k]&&t<A[k]+2.4;o.c.visible=on;if(!on)return;const fo=1-sst((t-(A[k]+2.1))/.3);o.c.alpha=S['t'+k].a*fo;o.c.y=300+S['t'+k].y;o.sub.alpha=S['u'+k].a});
+  // ST1 Orb
+  const on1=t>=A[0]&&t<A[0]+2.7;orbS.visible=orbCap.visible=on1;if(on1){drawOrb(t);const u=eback((t-A[0])/.6,1.4);orbS.scale.set(2.4*clamp(u,.1,1.1));orbCap.alpha=eo((t-A[0]-.8)/.4)*(1-sst((t-(A[0]+2.2))/.4));orbS.alpha=1-sst((t-(A[0]+2.2))/.4)}
+  // ST2 Handy
+  const on2=t>=A[1]&&t<A[1]+2.7;phone.visible=on2;if(on2){const tau=t-A[1],u=eback(tau/.55,1.5);phone.position.set(540,880);phone.scale.set(clamp(.15+.85*u,.05,1.08));phone.alpha=clamp(tau/.2)*(1-sst((t-(A[1]+2.3))/.4));
+    const p=sst((tau-.5)/1.3);phB.c.alpha=p;phA.c.alpha=1-p*.8;pin.alpha=tau>1.5?eo((tau-1.5)/.3):0;pin.scale.set(clamp(eback((tau-1.5)/.35),0,1.1));pinTx.text=tau>2.1?'✓ Erledigt':'Button grösser?';
+    if(circS){circS.alpha=tau>1.0?1:0;const m=sst((tau-1.0)/.5);circS.scale.set(.6*(.8+.2*m));circS.alpha=tau>1.0?m:0}}
+  // ST3 Freigabe
+  const on3=t>=A[2]&&t<A[2]+2.7;appr.visible=on3;if(on3){const tau=t-A[2],u=eback(tau/.55,1.5);appr.scale.set(clamp(.15+.85*u,.05,1.08));appr.alpha=clamp(tau/.2)*(1-sst((t-(A[2]+2.3))/.4));
+    const before=tau<1.1;[apT,apS,prev,btn].forEach(o=>o.visible=before);[okG,okT,okS].forEach(o=>o.visible=!before);
+    btn.y=150+10*sst((tau-.85)/.1);okG.scale.set(clamp(eback((tau-1.1)/.4),0,1.12));okT.alpha=eo((tau-1.3)/.3);okS.alpha=eo((tau-1.5)/.3);
+    if(okMarkS)okMarkS.alpha=1;glow.outerStrength=3+1.5*Math.sin(tau*6)}
+  // ST4 Laptop
+  const on4=t>=A[3]&&t<A[3]+2.8;lap.visible=on4;if(on4){const tau=t-A[3],u=eback(tau/.55,1.5);lap.scale.set(clamp(.15+.85*u,.05,1.08));lap.alpha=clamp(tau/.2)*(1-sst((t-(A[3]+2.4))/.4));
+    const p=sst((tau-.4)/1.2);lapB.alpha=p;lapA.alpha=1-p;pill.alpha=tau>.6?1:0;pill.scale.set(clamp(eback((tau-.6)/.35),0,1.15));chip.alpha=eo((tau-1.2)/.3);lapRef.alpha=eo((tau-1.2)/.3)}
+  // Rückblick
+  {const on=t>=16.1&&t<18.9;recap.visible=on;if(on){const fo=1-sst((t-18.4)/.4);recap.alpha=fo;recapLine.clear();const prog=clamp((t-16.4)/1.7);recapLine.lineStyle(14,OR,1).moveTo(290,640).lineTo(290,640+630*sst(prog));recapLine.lineStyle(5,0xffe8b4,1).moveTo(290,640).lineTo(290,640+630*sst(prog));
+    recapItems.forEach((c,k)=>{const a=eo((t-(16.3+k*.45))/.35);c.alpha=a;c.scale.set(.9+.1*a);c.children[1].alpha=1;c.filters[0].outerStrength=3*a*(1-sst((t-(16.5+k*.45+.6))/.4))})}}
+  // Wortkarten
+  const wf=1-sst((t-(HIT-.4))/.3);cards.forEach(c=>{c.c.visible=c.added&&wf>0;c.c.alpha=wf;c.c.position.set(c.b.position.x,c.b.position.y);c.c.rotation=c.b.angle});
+  // Hero
+  const tau=t-HIT;hero.visible=t>HIT-.5;
+  fall.visible=t>HIT-.45&&t<HIT;if(fall.visible){const q=(t-(HIT-.45))/.45;fall.position.set(631,lerp(-80,739,q*q));fall.scale.set(1-.25*q,1+.5*q)}
+  icon.visible=tau>=0;{const q=tau<0?0:eback(tau/.4);const sq=tau>0&&tau<.3?1+.12*Math.sin(Math.PI*tau/.3):1;icon.scale.set(300/640*clamp(q,0,1.08)*sq)}
+  ring.clear();if(tau>0&&tau<.6){const rr_=40+520*eo(tau/.6);ring.lineStyle(5,ORL,(1-tau/.6)*.8).drawEllipse(540,700,rr_,rr_*.35)}
+  const up=seg(t,HIT+.1,HIT+.6);uA.alpha=uB.alpha=up>0?1:0;{const wA=uA.width,wB=uB.width;uA.x=540-(wA+wB)/2+wA/2;uB.x=uA.x+wA/2+wB/2;uA.y=uB.y=930}
+  {const m=new PIXI.Graphics();} 
+  if(ulS){ulMask.clear();ulMask.beginFill(0xffffff).drawRect(540-380,950,760*sst((t-(HIT+.5))/.7),120).endFill()}
+  const cu=eback((t-(HIT+.8))/.4);ctaB.visible=t>HIT+.8;ctaB.scale.set(clamp(cu,0,1.08));c1.alpha=eo((t-(HIT+1.3))/.4);c2.alpha=eo((t-(HIT+1.6))/.4);
+  app.renderer.render(app.stage);
+};
+</script></body></html>

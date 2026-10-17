@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#08090c}
+:root{--or:#ff9f1c;--orl:#ffcd78;--ord:#c66e00;--w:#f5f5f7;--g:#969ea8;--card:#13171c;--edge:#37464f;--bl:#0a6fe0}
+#root{position:relative;width:1080px;height:1920px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--w);background:radial-gradient(900px 1100px at 540px 1000px,#1b1710 0%,#08090c 70%);overflow:hidden}
+.abs{position:absolute}.c{left:0;width:1080px;text-align:center;font-weight:800}
+#dot{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--orl),var(--or) 48%,var(--ord));box-shadow:0 0 90px 24px rgba(255,159,28,.3)}
+.sh{position:absolute;border-radius:50%;background:var(--or)}
+.title{position:absolute;left:0;width:1080px;top:250px;text-align:center}
+.title .row{display:inline-flex;align-items:center;gap:24px;font-weight:800;font-size:92px;line-height:1}
+.title .n{width:76px;height:76px;border-radius:50%;background:var(--or);box-shadow:0 6px 0 var(--ord);font-size:46px;display:flex;align-items:center;justify-content:center;color:#fff}
+.title .s{margin-top:18px;font-size:44px;color:var(--g);font-weight:500}
+.card{position:absolute;background:var(--card);border:3px solid var(--edge);border-radius:48px}
+.bub{position:absolute;border-radius:36px;font-weight:800;font-size:38px;line-height:1.3;padding:24px 34px;text-align:center}
+.pin{position:absolute;height:72px;padding:0 24px;border-radius:36px;background:var(--or);color:#1e1400;font-weight:800;font-size:34px;display:flex;align-items:center;white-space:nowrap;box-shadow:0 6px 0 #8a5300}
+.btn{position:absolute;border-radius:45px;background:var(--bl);box-shadow:0 10px 0 #064ea0;font-weight:800;font-size:44px;display:flex;align-items:center;justify-content:center;color:#fff}
+.wc{position:absolute;height:150px;border-radius:34px;background:var(--card);border:3px solid var(--edge);box-shadow:0 12px 0 #0b0e11;font-weight:800;font-size:96px;display:flex;align-items:center;justify-content:center}
+.wc.h{background:var(--or);border-color:var(--ord);box-shadow:0 12px 0 var(--ord);color:#201400}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+ <audio id="mus" src="assets/audio.mp3" data-start="0" data-duration="24" data-track-index="9" data-volume="1"></audio>
+
+ <!-- Hook + Intro 0-4.2 -->
+ <div class="clip abs" data-start="0" data-duration="4.2" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px">
+  <div id="dot"></div><div id="shards"></div>
+  <div id="h1" class="abs c" style="top:1180px;font-size:96px">Noch keine Website,</div>
+  <div id="h2" class="abs c" style="top:1290px;font-size:96px;color:var(--or)">die Kunden bringt?</div>
+  <div id="il1" class="abs" style="left:0;width:1080px;top:470px;display:flex;justify-content:center;gap:24px;font-weight:800;font-size:84px"><span class="iw">Wir</span><span class="iw">bauen</span><span class="iw">sie.</span></div>
+  <div id="il2" class="abs" style="left:0;width:1080px;top:580px;display:flex;justify-content:center;gap:24px;font-weight:800;font-size:84px"><span class="iw">Du</span><span class="iw">entscheidest.</span></div>
+  <div id="flash" class="abs" style="inset:0;background:#fff;opacity:0"></div>
+ </div>
+
+ <!-- Station 1 -->
+ <div class="clip abs" data-start="4.2" data-duration="3" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="title" id="t1"><div class="row"><span class="n">1</span>Erstgespräch</div><div class="s">Kostenlos. Unverbindlich.</div></div>
+  <div class="card" id="d1" style="left:150px;top:600px;width:780px;height:600px">
+   <div class="abs" style="left:36px;top:34px;display:flex;align-items:center;gap:16px;font-weight:800;font-size:38px"><i style="width:56px;height:56px;border-radius:50%;background:var(--or);display:block"></i>sherka.</div>
+   <div class="abs" style="left:40px;right:40px;top:130px;height:2px;background:var(--edge)"></div>
+   <div class="bub" id="b1" style="right:44px;top:180px;background:var(--or);color:#201400">Ich brauche eine<br>neue Website.</div>
+   <div class="bub" id="b2" style="left:44px;top:360px;width:600px;background:#2d3c44">Gerne! Wir antworten<br>innert eines Werktags.</div>
+  </div>
+ </div>
+ <!-- Station 2 -->
+ <div class="clip abs" data-start="7.2" data-duration="3" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="title" id="t2"><div class="row"><span class="n">2</span>Entwurf</div><div class="s">Du siehst ihn. Du kommentierst.</div></div>
+  <div class="abs" id="d2" style="left:260px;top:480px;width:560px;height:880px">
+   <div class="abs" style="left:60px;top:0;width:436px;height:800px;border-radius:52px;background:#32323a"></div>
+   <div class="abs" style="left:70px;top:10px;width:416px;height:780px;border-radius:42px;overflow:hidden"><img src="assets/bledi.png" style="width:416px;display:block"></div>
+   <div class="pin" id="pin" style="left:330px;top:214px;transform-origin:0 50%">Button grösser?</div>
+   <div class="abs" style="top:822px;width:100%;text-align:center;font-weight:700;font-size:40px;color:var(--g)">bledi-bienne.ch</div>
+  </div>
+ </div>
+ <!-- Station 3 -->
+ <div class="clip abs" data-start="10.2" data-duration="3" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="title" id="t3"><div class="row"><span class="n">3</span>Freigabe</div><div class="s">Online geht nur, was du freigibst</div></div>
+  <div class="card" id="d3" style="left:150px;top:640px;width:780px;height:560px;text-align:center">
+   <div id="a1"><div class="abs" style="top:84px;width:100%;font-weight:800;font-size:62px">Entwurf bereit</div><div class="abs" style="top:170px;width:100%;font-size:40px;color:var(--g);font-weight:500">Passt alles so?</div>
+    <div class="abs" style="left:120px;right:120px;top:240px;height:140px;border-radius:22px;background:#1e2c34"></div>
+    <div class="btn" id="bt" style="left:160px;right:160px;top:420px;height:90px">Freigeben</div></div>
+   <div id="a2" style="opacity:0"><div class="abs" id="ck" style="left:290px;top:120px;width:200px;height:200px;border-radius:50%;background:var(--or);box-shadow:0 12px 0 var(--ord);display:flex;align-items:center;justify-content:center"><svg width="200" height="200" viewBox="0 0 200 200"><polyline points="52,102 88,138 150,64" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="abs" id="o1" style="top:380px;width:100%;font-weight:800;font-size:66px">Freigegeben</div><div class="abs" id="o2" style="top:462px;width:100%;font-size:38px;color:var(--g);font-weight:500">Jetzt gehen wir online.</div></div>
+  </div>
+ </div>
+ <!-- Station 4 -->
+ <div class="clip abs" data-start="13.2" data-duration="3" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="title" id="t4"><div class="row"><span class="n">4</span>Online</div><div class="s">Die Domain gehört dir.</div></div>
+  <div class="abs" id="d4" style="left:100px;top:520px;width:880px;height:780px">
+   <div class="abs" id="pl" style="left:335px;top:20px;width:210px;height:68px;border-radius:34px;background:#16222a;border:3px solid #3cbe5a;display:flex;align-items:center;justify-content:center;gap:12px;font-weight:800;font-size:36px"><i style="width:20px;height:20px;border-radius:50%;background:#3cdc64;display:block"></i>Online</div>
+   <div class="abs" style="left:78px;top:88px;width:764px;height:494px;border-radius:24px;background:#2e2e34"></div>
+   <div class="abs" style="left:100px;top:110px;width:720px;height:450px;overflow:hidden"><img src="assets/zahnarzt.png" style="width:720px;display:block"></div>
+   <div class="abs" style="left:20px;top:582px;width:840px;height:26px;border-radius:12px;background:#c4c4cc"></div>
+   <div class="abs" id="ch" style="left:200px;top:640px;width:480px;height:72px;border-radius:36px;background:#16222a;border:2px solid var(--edge);display:flex;align-items:center;justify-content:center;gap:14px;font-weight:800;font-size:36px">deine-firma.ch <span style="color:var(--or);font-weight:500;font-size:32px">gehört dir</span></div>
+   <div class="abs" id="rf" style="top:742px;width:100%;text-align:center;font-weight:700;font-size:40px;color:var(--g)">bern-zahnarzt-team.ch</div>
+  </div>
+ </div>
+ <!-- Rückblick -->
+ <div class="clip abs" data-start="16.2" data-duration="2.6" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="abs" id="rl" style="left:290px;top:640px;width:14px;height:0;border-radius:7px;background:var(--or);box-shadow:0 0 20px var(--or)"></div>
+  <div id="rc"></div>
+ </div>
+ <!-- Wörter -->
+ <div class="clip abs" data-start="18.6" data-duration="3.2" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px">
+  <div class="wc" id="w1" style="left:70px;width:380px;top:1100px">Mehr</div>
+  <div class="wc h" id="w2" style="left:500px;width:540px;top:1100px">Kunden.</div>
+  <div class="wc" id="w3" style="left:150px;width:570px;top:925px">Weniger</div>
+  <div class="wc h" id="w4" style="left:320px;width:620px;top:750px">Aufwand.</div>
+ </div>
+ <!-- Hero -->
+ <div class="clip abs" data-start="21.6" data-duration="2.4" data-track-index="3" style="left:0;top:0;width:1080px;height:1920px">
+  <img id="ic" src="assets/icon-crop.png" class="abs" style="left:419px;top:470px;height:300px;filter:drop-shadow(0 0 20px rgba(255,159,28,.5))">
+  <div id="ur" class="abs c" style="top:860px;font-size:124px;line-height:1.1">sherka<span style="color:var(--or)">.ch</span></div>
+  <div id="ul" class="abs" style="left:160px;top:1010px;width:0;height:10px;border-radius:5px;background:var(--or);box-shadow:0 0 16px var(--or)"></div>
+  <div id="cta" class="btn" style="left:190px;top:1265px;width:700px;height:130px;border-radius:65px;font-size:54px;box-shadow:0 12px 0 #064ea0">Erstgespräch anfragen</div>
+  <div id="c1" class="abs c" style="top:1430px;font-size:44px;color:var(--g);font-weight:500">Kostenlos und unverbindlich</div>
+  <div id="c2" class="abs c" style="top:1500px;font-size:44px;color:var(--or)">Link in der Bio</div>
+ </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const A=[4.2,7.2,10.2,13.2],HIT=21.6,W0=18.6;
+// ---- Hook (deterministisch: keine Zufallswerte) ----
+const dot=document.getElementById('dot');
+gsap.set(dot,{width:940,height:940,left:70,top:530,scale:.013,transformOrigin:'50% 50%'});
+tl.to(dot,{scale:1,duration:.17,ease:'power3.in'},0)
+  .to(dot,{scaleX:1.4,scaleY:.71,duration:.1,ease:'power2.out'},.17).to(dot,{scaleX:1,scaleY:1,duration:.2,ease:'elastic.out(1,.4)'},.27)
+  .to(dot,{scale:44/940,y:-62,duration:.8,ease:'power3.inOut'},.45)
+  .to(dot,{scaleY:.35,duration:.06,yoyo:true,repeat:1},1.3)
+  .to(dot,{y:-162,duration:.15,ease:'power2.out'},1.5).to(dot,{y:-62,duration:.15,ease:'power2.in'},1.65)
+  .to(dot,{y:1138,x:150,duration:1.9,ease:'power2.in'},2.0).to(dot,{opacity:0,duration:.4},3.5);
+const sh=document.getElementById('shards');
+for(let i=0;i<18;i++){const e=document.createElement('div');e.className='sh';const sz=8+(i%5)*3;e.style.cssText=`left:540px;top:1000px;width:${sz}px;height:${sz}px;opacity:0`;sh.appendChild(e);
+  const ang=(i*2.399+.7)%(2*Math.PI),v=500+(i%6)*100;tl.fromTo(e,{opacity:1,x:0,y:0},{opacity:0,x:Math.cos(ang)*v*.63,y:Math.sin(ang)*v*.63+900*.63*.63,duration:.63,ease:'power1.out'},.17)}
+tl.fromTo('#flash',{opacity:.16},{opacity:0,duration:.13},.17);
+tl.fromTo('#root',{x:0},{keyframes:{x:[0,22,-18,14,-9,5,0],y:[0,15,-12,9,-6,3,0]},duration:.7,ease:'none'},.17);
+tl.from('#h1',{opacity:0,y:36,duration:.3,ease:'power3.out'},.5).from('#h2',{opacity:0,y:36,duration:.3,ease:'power3.out'},.7).to('#h1,#h2',{opacity:0,duration:.25},1.9);
+tl.from('.iw',{opacity:0,y:40,duration:.38,stagger:.12,ease:'power3.out'},2.1).to('.iw',{opacity:0,duration:.3},3.6);
+// ---- Stationen ----
+function pop(sel,at,out){tl.fromTo(sel,{scale:.15,opacity:0,transformOrigin:'50% 50%'},{scale:1,opacity:1,duration:.55,ease:'back.out(1.5)'},at).to(sel,{opacity:0,duration:.4},out)}
+function title(sel,at){tl.from(sel,{opacity:0,y:24,duration:.3,ease:'power3.out'},at+.05).to(sel,{opacity:0,duration:.3},at+2.1)}
+title('#t1',A[0]);title('#t2',A[1]);title('#t3',A[2]);title('#t4',A[3]);
+pop('#d1',A[0],A[0]+2.3);pop('#d2',A[1],A[1]+2.3);pop('#d3',A[2],A[2]+2.3);pop('#d4',A[3],A[3]+2.4);
+tl.from('#b1',{scale:0,duration:.35,ease:'back.out(2)',transformOrigin:'100% 0'},A[0]+.45).from('#b2',{scale:0,duration:.35,ease:'back.out(2)',transformOrigin:'0 0'},A[0]+1.35);
+tl.from('#pin',{scale:0,duration:.35,ease:'back.out(2)'},A[1]+.7).set('#pin',{background:'#3cbe5a',color:'#fff',boxShadow:'0 6px 0 #1f7a35',textContent:'✓ Erledigt'},A[1]+1.55);
+tl.to('#bt',{y:8,boxShadow:'0 2px 0 #064ea0',duration:.1},A[2]+.85).to('#a1',{opacity:0,duration:.05},A[2]+1.1).set('#a2',{opacity:1},A[2]+1.1)
+  .from('#ck',{scale:0,duration:.4,ease:'back.out(2)'},A[2]+1.1).from('#o1',{opacity:0,duration:.3},A[2]+1.3).from('#o2',{opacity:0,duration:.3},A[2]+1.5);
+tl.from('#pl',{scale:0,duration:.35,ease:'back.out(2)'},A[3]+.6).from('#ch,#rf',{opacity:0,y:20,duration:.3},A[3]+1.2);
+// ---- Rückblick ----
+const rc=document.getElementById('rc');['Erstgespräch','Entwurf','Freigabe','Online'].forEach((n,k)=>{const d=document.createElement('div');d.className='abs';d.style.cssText=`left:240px;top:${640+k*210-46}px;display:flex;align-items:center;gap:36px;font-weight:800;font-size:84px`;
+  d.innerHTML=`<div style="width:92px;height:92px;border-radius:50%;background:var(--or);box-shadow:0 8px 0 var(--ord);display:flex;align-items:center;justify-content:center;font-size:46px;color:#fff">${k+1}</div>${n}`;rc.appendChild(d);
+  tl.from(d,{opacity:0,scale:.9,duration:.35,ease:'power3.out',transformOrigin:'0 50%'},16.3+k*.45)});
+tl.to('#rl',{height:630,duration:1.7,ease:'power2.inOut'},16.4).to('#rl,#rc',{opacity:0,duration:.4},18.4);
+// ---- Wörter (gefallen, nicht simuliert) ----
+[['#w1',-8,.15],['#w2',5,.55],['#w3',4,.95],['#w4',-6,1.35]].forEach(([s,r,d])=>{
+  tl.fromTo(s,{y:-1300,rotation:0},{y:0,rotation:r,duration:.55,ease:'bounce.out'},W0+d).to(s,{opacity:0,duration:.3},HIT-.4)});
+// ---- Hero ----
+tl.from('#ic',{scale:0,duration:.45,ease:'back.out(2)',transformOrigin:'50% 50%'},HIT).fromTo('#flash',{opacity:.22},{opacity:0,duration:.12},HIT)
+  .from('#ur',{clipPath:'inset(-20px 100% -20px 0)',duration:.5,ease:'power2.out'},HIT+.1).to('#ul',{width:760,duration:.7,ease:'power2.inOut'},HIT+.5)
+  .from('#cta',{scale:0,duration:.4,ease:'back.out(1.7)'},HIT+.8).from('#c1',{opacity:0,duration:.4},HIT+1.3).from('#c2',{opacity:0,duration:.4},HIT+1.6);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body></html>

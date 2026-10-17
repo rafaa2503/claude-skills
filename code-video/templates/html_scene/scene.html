@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=1080,height=1920">
+<style>
+  :root{--bg:#08090c;--or:#ff9f1c;--orl:#ffcd78;--ord:#c66e00;--w:#f5f5f7}
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg);font-family:Inter,system-ui,sans-serif}
+  #stage{position:absolute;inset:0;background:radial-gradient(900px 1100px at 540px 1000px,#1b1710 0%,#08090c 70%)}
+  .card{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform;
+        background:#13171c;border:3px solid #37464f;border-radius:34px;box-shadow:0 12px 0 #0b0e11;
+        color:var(--w);font-weight:800;font-size:96px;line-height:1;display:flex;align-items:center;justify-content:center}
+  .card.hot{background:var(--or);border-color:var(--ord);box-shadow:0 12px 0 var(--ord);color:#201400}
+  #dot{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--orl),var(--or) 45%,var(--ord));box-shadow:0 0 120px 30px rgba(255,159,28,.35)}
+  #cta{position:absolute;left:190px;width:700px;top:1330px;height:130px;border-radius:65px;background:#0a6fe0;box-shadow:0 12px 0 #064ea0;
+       color:#fff;font-weight:800;font-size:54px;display:flex;align-items:center;justify-content:center;transform-origin:50% 50%}
+  #url{position:absolute;left:0;width:1080px;top:1520px;text-align:center;color:var(--w);font-weight:800;font-size:84px}
+  #url b{color:var(--or)}
+</style></head><body>
+<div id="stage"></div><div id="dot"></div><div id="cta">Erstgespräch anfragen</div><div id="url">sherka<b>.ch</b></div>
+<script src="vendor/matter.min.js"></script>
+<script>
+/* Vertrag: window.renderAt(t) setzt den Zustand für Sekunde t. Reine Funktion von t, ausser die Physik:
+   sie wird mit festem Schritt (1/60) von der letzten Zeit bis t vorwärts simuliert. Capture läuft nur vorwärts. */
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-clamp(x),3);
+const eback=(x,k=1.9)=>{x=clamp(x);return 1+(k+1)*Math.pow(x-1,3)+k*Math.pow(x-1,2)};
+const {Engine,Bodies,Composite,Body}=Matter;
+const engine=Engine.create({gravity:{y:1.6}});
+Composite.add(engine.world,[Bodies.rectangle(540,1240,1200,60,{isStatic:true}),
+  Bodies.rectangle(-30,900,60,2400,{isStatic:true}),Bodies.rectangle(1110,900,60,2400,{isStatic:true})]);
+const WORDS=[["Mehr",false,0.9],["Kunden.",true,1.25],["Weniger",false,1.6],["Aufwand.",true,1.95]];
+const cards=WORDS.map(([txt,hot,t0],i)=>{
+  const el=document.createElement('div');el.className='card'+(hot?' hot':'');el.textContent=txt;document.body.appendChild(el);
+  const w=txt.length*62+90,h=150;el.style.width=w+'px';el.style.height=h+'px';
+  const b=Bodies.rectangle(300+((i*397)%480),-200,w,h,{restitution:.25,friction:.6,chamfer:{radius:30},angle:(i%2?1:-1)*0.18});
+  return {el,b,w,h,t0,added:false};
+});
+let simT=0;
+function stepTo(t){
+  while(simT<t-1e-9){
+    for(const c of cards) if(!c.added&&simT>=c.t0){Composite.add(engine.world,c.b);c.added=true}
+    Engine.update(engine,1000/60);simT+=1/60;
+  }
+}
+const dot=document.getElementById('dot'),cta=document.getElementById('cta'),url=document.getElementById('url');
+window.renderAt=function(t){
+  stepTo(t);
+  // Punkt: rast von hinten heran, schlägt bei 0.17 s ein, schrumpft dann zur Ecke
+  let r,x,y,sx=1,sy=1;
+  if(t<0.17){r=6+(300-6)*Math.pow(t/0.17,3);x=540;y=700}
+  else{const m=clamp((t-0.5)/0.7),s=m*m*(3-2*m);r=300+(40-300)*s;x=540+(930-540)*s;y=700+(300-700)*s;
+       const q=(t-0.17)/0.3;if(q<1){const k=1+0.35*Math.sin(Math.PI*q)*Math.exp(-1.5*q);sx=k;sy=1/k}}
+  dot.style.width=dot.style.height=(2*r)+'px';
+  dot.style.transform=`translate(${x-r}px,${y-r}px) scale(${sx},${sy})`;
+  const shake=(t>0.17&&t<0.9)?26*Math.exp(-(t-0.17)*9)*Math.sin((t-0.17)*70):0;
+  document.getElementById('stage').style.transform=`translate(${shake}px,${shake*.7}px)`;
+  for(const c of cards){
+    const p=c.b.position;c.el.style.opacity=c.added?1:0;
+    c.el.style.transform=`translate(${p.x-c.w/2}px,${p.y-c.h/2}px) rotate(${c.b.angle}rad)`;
+  }
+  const u=eback((t-2.8)/0.45);cta.style.opacity=clamp((t-2.8)/0.15);cta.style.transform=`scale(${clamp(u,0,1.08)})`;
+  url.style.opacity=eo((t-3.3)/0.3);
+};
+window.renderAt(0);
+</script></body></html>

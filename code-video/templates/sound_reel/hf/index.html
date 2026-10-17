@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de" data-resolution="portrait">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#08090c}
+:root{--or:#ff9f1c;--orl:#ffcd78;--ord:#c66e00;--w:#f5f5f7;--g:#969ea8;--card:#13171c;--edge:#37464f;--bl:#0a6fe0}
+#root{position:relative;width:1080px;height:1920px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--w);background:radial-gradient(900px 1100px at 540px 1000px,#14120e 0%,#08090c 70%);overflow:hidden}
+.abs{position:absolute}.c{left:0;width:1080px;text-align:center;font-weight:800}
+#glow{position:absolute;left:0;top:0;width:1080px;height:1920px;background:radial-gradient(800px 900px at 540px 900px,rgba(255,159,28,.35),rgba(255,159,28,0) 70%);opacity:0}
+.win{position:absolute;left:90px;top:420px;width:900px;height:740px;border-radius:36px;background:#1b1f25;border:3px solid #2a3038;overflow:hidden}
+.win .bar{position:absolute;left:0;top:0;width:100%;height:70px;background:#232830}
+.win .bar i{position:absolute;top:26px;width:18px;height:18px;border-radius:50%;background:#3a424c}
+.sk{position:absolute;border-radius:14px;background:#2a3038}
+#shot{position:absolute;left:0;top:70px;width:900px;overflow:hidden;height:670px;opacity:0}
+#shot img{width:900px;display:block}
+.chip{position:absolute;height:84px;padding:0 36px;border-radius:42px;background:var(--card);border:3px solid var(--edge);font-weight:800;font-size:40px;display:flex;align-items:center;gap:14px}
+.chip b{width:22px;height:22px;border-radius:50%;background:var(--or);display:block}
+.phone{position:absolute;left:260px;top:400px;width:560px;height:1060px;border-radius:84px;background:#101419;border:6px solid #2d343c;box-shadow:0 0 120px rgba(255,159,28,.15);opacity:0}
+.notif{position:absolute;left:30px;width:500px;height:116px;border-radius:30px;background:rgba(32,38,46,.96);border:2px solid #3b4550;display:flex;align-items:center;gap:22px;padding:0 26px;opacity:0}
+.notif i{width:62px;height:62px;border-radius:18px;background:var(--or);box-shadow:0 5px 0 var(--ord);display:block;flex:none}
+.notif div{font-weight:800;font-size:32px;line-height:1.2}.notif span{display:block;font-weight:500;font-size:26px;color:var(--g)}
+.ring{position:absolute;left:540px;top:930px;width:560px;height:1060px;margin:-530px 0 0 -280px;border-radius:84px;border:5px solid var(--or);opacity:0}
+.eq{position:absolute;bottom:0;width:30px;border-radius:15px 15px 0 0;background:var(--or)}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="21.6" data-width="1080" data-height="1920">
+ <audio id="mus" src="assets/audio.mp3" data-start="0" data-duration="21.6" data-track-index="9" data-volume="1"></audio>
+ <div id="glow"></div>
+
+ <!-- A+B: Website (Stille, dann Bauen) 0-7.4 -->
+ <div class="clip abs" data-start="0" data-duration="7.4" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px">
+  <div id="t1" class="abs c" style="top:1240px;font-size:78px;line-height:1.15">So klingt eine Website,<br>die niemand besucht.</div>
+  <div id="win" class="win">
+   <div class="bar"><i style="left:30px"></i><i style="left:62px"></i><i style="left:94px"></i></div>
+   <div class="sk" id="s1" style="left:40px;top:110px;width:820px;height:220px"></div>
+   <div class="sk" style="left:40px;top:370px;width:520px;height:26px"></div>
+   <div class="sk" style="left:40px;top:420px;width:620px;height:26px"></div>
+   <div class="sk" style="left:40px;top:470px;width:420px;height:26px"></div>
+   <div class="abs" id="cnt" style="left:40px;top:560px;font-size:54px;font-weight:800;color:#59626d">Besucher heute: <span id="cn">0</span></div>
+   <div id="shot"><img src="assets/bledi.png"></div>
+  </div>
+  <div id="flat" class="abs" style="left:90px;top:1500px;width:900px;height:4px;border-radius:2px;background:#3b4550"></div>
+  <div id="eqs" class="abs" style="left:150px;top:1380px;width:780px;height:150px"></div>
+  <div class="chip" id="c1" style="left:90px;top:1230px"><b></b>Entwurf</div>
+  <div class="chip" id="c2" style="left:380px;top:1230px"><b></b>Freigabe</div>
+  <div class="chip" id="c3" style="left:700px;top:1230px;background:var(--or);color:#1e1400;border-color:var(--ord)">Online</div>
+ </div>
+
+ <!-- C: Handy meldet sich 7.2-16.4 -->
+ <div class="clip abs" data-start="7.2" data-duration="9.2" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px">
+  <div id="rings"></div>
+  <div id="phone" class="phone"><div id="notifs"></div></div>
+  <div id="t2" class="abs c" style="top:190px;font-size:80px;opacity:0">Stell dir vor:</div>
+  <div id="t3" class="abs c" style="top:190px;font-size:76px;line-height:1.15;opacity:0">Das ist der Klang<br>einer guten Website.</div>
+  <div class="abs c" id="ill" style="top:1700px;font-size:30px;font-weight:500;color:#6b747e;opacity:0">Illustration</div>
+ </div>
+
+ <!-- D: Schlag + CTA 16.2-21.6 -->
+ <div class="clip abs" data-start="16.2" data-duration="5.4" data-track-index="2" style="left:0;top:0;width:1080px;height:1920px">
+  <div id="dot" class="abs" style="left:500px;top:900px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--orl),var(--or) 48%,var(--ord));box-shadow:0 0 60px 14px rgba(255,159,28,.4);opacity:0"></div>
+  <img id="ic" src="assets/icon-crop.png" class="abs" style="left:419px;top:470px;height:300px;filter:drop-shadow(0 0 22px rgba(255,159,28,.5))">
+  <div id="ur" class="abs c" style="top:860px;font-size:124px;line-height:1.1">sherka<span style="color:var(--or)">.ch</span></div>
+  <div id="cta" class="abs" style="left:190px;top:1265px;width:700px;height:130px;border-radius:65px;background:var(--bl);box-shadow:0 12px 0 #064ea0;font-weight:800;font-size:54px;display:flex;align-items:center;justify-content:center">Erstgespräch gratis</div>
+  <div id="c2t" class="abs c" style="top:1440px;font-size:44px;color:var(--g);font-weight:500">Kostenlos und unverbindlich</div>
+  <div id="c3t" class="abs c" style="top:1510px;font-size:44px;color:var(--or)">Link in der Bio</div>
+  <div id="fl" class="abs" style="left:0;top:0;width:1080px;height:1920px;background:#fff;opacity:0"></div>
+ </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const PINGS = [[7.45, 0], [8.05, 2], [8.65, 3], [9.0, 4], [9.3, 2], [9.6, 4], [9.8, 5], [10.0, 3], [10.2, 5], [10.4, 4], [10.6, 5], [10.8, 0], [11.1, 2], [11.4, 4], [11.7, 2], [12.0, 3], [12.3, 5], [12.6, 4], [12.9, 2], [13.2, 1], [13.5, 3], [13.8, 4], [14.1, 3], [14.4, 2], [14.7, 4], [15.0, 5], [15.3, 3], [15.6, 0], [15.9, 2]];
+// ---- A: Stille (grau, leer) ----
+tl.from('#t1',{opacity:0,y:30,duration:.5,ease:'power3.out'},.5);
+tl.fromTo('#win',{filter:'grayscale(1) brightness(.8)'},{filter:'grayscale(1) brightness(.8)',duration:.01},0);
+tl.to('#flat',{scaleX:.97,duration:.4,yoyo:true,repeat:5,ease:'sine.inOut'},.2);   // leises Rauschen
+tl.to('#t1',{opacity:0,duration:.3},3.1);
+// ---- B: Bauen ----
+const eqs=document.getElementById('eqs');const bars=[];for(let i=0;i<22;i++){const b=document.createElement('div');b.className='eq';b.style.left=(i*36)+'px';b.style.height='150px';b.style.transform='scaleY(.03)';b.style.transformOrigin='50% 100%';eqs.appendChild(b);bars.push(b)}
+tl.to('#flat',{opacity:0,duration:.2},3.4);
+// Tastaturanschlaege 3.45-5.4: Balken zucken
+for(let k=0;k<14;k++){const t=3.5+k*.13;tl.to(bars[(k*5)%22],{scaleY:.25+((k*37)%60)/100,duration:.07,yoyo:true,repeat:1},t)}
+tl.to('#win',{filter:'grayscale(0) brightness(1)',duration:.6},3.5);
+tl.to('#s1',{background:'#ff9f1c',duration:.4},3.7).from('#c1',{scale:0,duration:.35,ease:'back.out(2)'},3.6);
+tl.to('#cn',{textContent:0,duration:.01},3.6);
+tl.to('#shot',{opacity:1,duration:.5},4.4);
+tl.from('#c2',{scale:0,duration:.35,ease:'back.out(2)'},4.9).to('#c2',{scale:.92,duration:.08,yoyo:true,repeat:1},5.0).to('#c2',{background:'#ff9f1c',color:'#1e1400',duration:.2},5.28);
+tl.from('#c3',{scale:0,duration:.35,ease:'back.out(2)'},6.2).to('#win',{boxShadow:'0 0 120px rgba(255,159,28,.6)',duration:.3},6.3);
+// Riser: Balken steigen 5.2-7.2
+bars.forEach((b,i)=>tl.to(b,{scaleY:.4+((i*13)%50)/100,duration:1.8,ease:'power2.in'},5.2));
+tl.to(bars,{scaleY:.03,duration:.15},7.2);
+tl.to('#win',{scale:.4,y:300,opacity:0,duration:.45,ease:'power3.in'},6.85).to('#c1,#c2,#c3,#eqs',{opacity:0,duration:.25},6.9);
+// ---- C: Handy ----
+tl.fromTo('#phone',{opacity:0,y:60,scale:.9},{opacity:1,y:0,scale:1,duration:.4,ease:'back.out(1.6)'},7.1);
+tl.fromTo('#phone',{x:0},{keyframes:{x:[0,-14,12,-10,8,-6,4,0]},duration:.8,ease:'none'},7.2);           // Vibration
+tl.to('#ill',{opacity:1,duration:.4},7.6);
+tl.to('#t2',{opacity:1,y:0,duration:.4,ease:'power3.out'},7.7).to('#t2',{opacity:0,duration:.3},10.7);
+tl.to('#t3',{opacity:1,duration:.4},12.5).to('#t3',{opacity:0,duration:.3},15.4);
+const rings=document.getElementById('rings'),notifs=document.getElementById('notifs');
+const TXT=[['Neue Anfrage','über dein Kontaktformular'],['Termin angefragt','jetzt'],['Offerte gewünscht','jetzt'],['Rückruf gewünscht','jetzt'],['Neue Nachricht','über deine Website']];
+let cards=[],ci=0;
+PINGS.forEach(([t,k],idx)=>{
+  const r=document.createElement('div');r.className='ring';rings.appendChild(r);
+  const tt=t-7.2;
+  tl.fromTo(r,{opacity:.7,scale:1},{opacity:0,scale:1.18+k*.02,duration:.7,ease:'power2.out'},t);
+  tl.to('#glow',{opacity:Math.min(.9,.15+idx*.03),duration:.08},t).to('#glow',{opacity:Math.min(.5,.1+idx*.015),duration:.45},t+.08);
+  if(idx<11||idx%3===0){
+    const c=document.createElement('div');c.className='notif';const [a,b]=TXT[ci%TXT.length];ci++;
+    c.innerHTML='<i></i><div>'+a+'<span>'+b+'</span></div>';notifs.appendChild(c);
+    cards.forEach((o,j)=>{const slot=cards.length-j;tl.to(o,{y:130+(slot)*128-130,duration:.25,ease:'power2.out'},t)});
+    gsap.set(c,{y:-40});
+    tl.fromTo(c,{y:-40,opacity:0,scale:.92},{y:130,opacity:1,scale:1,duration:.3,ease:'back.out(1.8)'},t);
+    cards.push(c);
+    const old=cards[cards.length-6];if(old)tl.to(old,{opacity:0,duration:.2},t);
+  }
+});
+// ---- D: Atempause, Schlag, CTA ----
+tl.set('#fl',{opacity:0},0);
+tl.to('#phone,#t3,#ill',{opacity:0,duration:.35},15.9);
+tl.fromTo('#dot',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.5,ease:'power2.out'},16.3).to('#dot',{scale:1.25,duration:.25,yoyo:true,repeat:1},16.3);
+tl.to('#dot',{opacity:0,duration:.1},16.78);
+tl.from('#ic',{scale:0,duration:.45,ease:'back.out(2)',transformOrigin:'50% 50%'},16.8).set('#fl',{opacity:.25},16.8).to('#fl',{opacity:0,duration:.14},16.8);
+tl.fromTo('#root',{x:0},{keyframes:{x:[0,16,-14,10,-6,3,0],y:[0,10,-9,6,-3,0,0]},duration:.6,ease:'none'},16.8);
+tl.from('#ur',{clipPath:'inset(-20px 100% -20px 0)',duration:.5,ease:'power2.out'},16.95);
+tl.from('#cta',{scale:0,duration:.4,ease:'back.out(1.7)'},17.9).from('#c2t',{opacity:0,duration:.4},18.4).from('#c3t',{opacity:0,duration:.4},18.7);
+tl.to('#cta',{scale:1.06,duration:.18,yoyo:true,repeat:1},19.95);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body></html>

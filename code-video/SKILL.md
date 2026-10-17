@@ -109,3 +109,13 @@ music >= 12 dB under words, master -14 LUFS / -1.25 dBTP. Verify with `volumedet
 ## 8. Hand-off
 Video · template scripts · screenshots/logo under `assets/` · a short list of what is missing vs. a studio ad
 (voice, licensed sounds, true 3D) · open questions (niche, prices, name/face).
+
+## 9. Sound-first pattern (reference: `templates/sound_reel/`, Sherka v7 "Der Klang einer guten Website")
+Idea where sound carries the story: silence (dead site, wind) -> build (keyboard, click, chime, launch) -> phone buzz -> **notification pings are the music** (D-major pentatonic, quantized to the beat) -> breath -> impact + CTA.
+- Real foley from the ElevenLabs connector (`creative_generate_in_flow`, node `sfx`, model `eleven_text_to_sound_v2`, ~0.5 cent each, `generations_count: 1`). The reported `duration_secs` and the prompt length are unreliable (a "1 second whoosh" came back 16 s): measure with ffprobe and trim.
+- Voice: `creative_generate_speech` (`eleven_v4`, German voice from `creative_list_voices`), one flowing read with `[long pause]` between lines, then cut at `silencedetect` gaps and place each part on its anchor. Tags: `[tired]` for the dead scene, `[warmly]`, `[excited]`.
+- `make_sound.py` builds the whole mix from `sfx/*.mp3` + synthesized pings and writes `pings.json`, which the HyperFrames scene reads so each ping triggers a ring and a notification card (picture follows sound).
+- Duck music under the voice with an envelope; loudnorm -14 LUFS at the end and again after muxing (HyperFrames lowers level).
+- Honesty: notification scenes must be framed as illustration ("Stell dir vor", "Illustration" label). No real inquiry counts.
+- Free tier note: a flagged free ElevenLabs account refused some takes ("Free Tier access disabled"): a paid plan fixes it; never retry a failed generation call (it is charged again).
+- Never use a raw API key pasted in chat: the security check blocks it; use the connector and tell the user to rotate the key.

@@ -5,6 +5,8 @@ description: Build short brand/social videos (Reels, Shorts, spec ads, kinetic t
 
 # Code Video
 
+Per-engine skills: `video-engine-picker` (chooses), `video-python`, `video-html-playwright`, `video-effects-libs`, `video-remotion`, `video-hyperframes`, `video-openmontage`. This skill holds the shared rules.
+
 15-30 s, 1080x1920, every frame produced by code, identical on every render.
 Claude does not generate video; it writes the edit as code. Changing a shot = changing a line.
 Sources and what was taken from each: `references/sources.md`.

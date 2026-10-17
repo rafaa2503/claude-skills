@@ -21,6 +21,14 @@ bg = Image.blend(bg, Image.composite(glow, bg, glow.convert("L").point(lambda v:
 glow = glow.filter(ImageFilter.GaussianBlur(260))
 bg = Image.fromarray(__import__("numpy").clip(__import__("numpy").asarray(bg, dtype="int16") + __import__("numpy").asarray(glow, dtype="int16"), 0, 255).astype("uint8"))
 
+_ic = Image.open("assets/logo/icon-dark-transparent-1024.png").convert("RGBA")
+ICON = _ic.crop(_ic.getbbox())
+def paste_icon(im, cx, top, h, alpha):
+    if alpha <= 0: return
+    ic = ICON.resize((int(ICON.width * h / ICON.height), h), Image.LANCZOS)
+    r, g, b, a = ic.split(); a = a.point(lambda v: int(v * alpha))
+    im.paste(ic, (cx - ic.width // 2, top), a)
+
 shot = Image.open("assets/bledi.png").convert("RGB")
 PW = 640
 shot = shot.resize((PW, int(shot.height * PW / shot.width)), Image.LANCZOS)
@@ -60,11 +68,12 @@ def frame(t):
     # S2 Marke 3.5-7.5
     if 3.5 <= t < 7.8:
         a = seg(t, 3.5, 4.0) * (1 - seg(t, 7.3, 7.8))
-        brand(d, 700, 190, "sherka", ".", a)
+        paste_icon(im, W // 2, 470, 330, a)
+        brand(d, 900, 150, "sherka", ".", a)
         p = seg(t, 4.3, 4.9)
-        text(d, (W // 2, 1000 + (1 - p) * 30), "Websites für kleine Betriebe", font("Medium", 58), WHITE, p * a)
+        text(d, (W // 2, 1180 + (1 - p) * 30), "Websites für kleine Betriebe", font("Medium", 58), WHITE, p * a)
         p = seg(t, 5.0, 5.6)
-        text(d, (W // 2, 1090 + (1 - p) * 30), "in der ganzen Schweiz", font("Medium", 58), GREY, p * a)
+        text(d, (W // 2, 1270 + (1 - p) * 30), "in der ganzen Schweiz", font("Medium", 58), GREY, p * a)
     # S3 Beispiel 7.8-14.8
     if 7.8 <= t < 15.0:
         a = seg(t, 7.8, 8.3) * (1 - seg(t, 14.5, 15.0))
@@ -108,7 +117,9 @@ def frame(t):
         d.rounded_rectangle((bx, by, bx + bw, by + bh), 75, fill=col)
         text(d, (W // 2, by + bh // 2), "Link in der Bio", font("Bold", 62), WHITE, p, "mm")
         p = seg(t, 24.2, 24.8)
-        brand(d, 1420, 84, "sherka", ".ch", p)
+        paste_icon(im, W // 2, 1370, 170, p)
+        d = ImageDraw.Draw(im)
+        brand(d, 1580, 84, "sherka", ".ch", p)
     return im
 
 cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),

@@ -30,6 +30,7 @@ def paste_icon(im, cx, top, h, alpha):
     im.paste(ic, (cx - ic.width // 2, top), a)
 
 shot = Image.open("assets/bledi.png").convert("RGB")
+ZSHOT = Image.open("assets/zahnarzt.png").convert("RGB")
 PW = 640
 shot = shot.resize((PW, int(shot.height * PW / shot.width)), Image.LANCZOS)
 PHONE_H = 1230
@@ -54,7 +55,7 @@ def brand(d, y, size, a_txt, b_txt, alpha):
     text(d, (x, y), a_txt, f, WHITE, alpha, "la")
     text(d, (x + wa, y), b_txt, f, ORANGE, alpha, "la")
 
-TOTAL = 27.0
+TOTAL = 29.0
 def frame(t):
     im = bg.copy(); d = ImageDraw.Draw(im)
     # S1 Hook 0-3.3
@@ -75,11 +76,11 @@ def frame(t):
         p = seg(t, 5.0, 5.6)
         text(d, (W // 2, 1270 + (1 - p) * 30), "in der ganzen Schweiz", font("Medium", 58), GREY, p * a)
     # S3 Beispiel 7.8-14.8
-    if 7.8 <= t < 15.0:
-        a = seg(t, 7.8, 8.3) * (1 - seg(t, 14.5, 15.0))
+    if 7.8 <= t < 11.8:
+        a = seg(t, 7.8, 8.2) * (1 - seg(t, 11.4, 11.8))
         text(d, (W // 2, 200), "Von uns gebaut", font("SemiBold", 64), GREY, a)
-        slide = (1 - seg(t, 7.9, 8.8)) * 160
-        sc = 1.0 + 0.03 * seg(t, 8.8, 14.8)
+        slide = (1 - seg(t, 7.9, 8.6)) * 160
+        sc = 1.0 + 0.03 * seg(t, 8.6, 11.8)
         ph = shot.copy(); mk = mask
         pw2, ph2 = int(PW * sc), int(PHONE_H * sc)
         ph = ph.resize((pw2, ph2), Image.LANCZOS); mk2 = mk.resize((pw2, ph2), Image.LANCZOS)
@@ -92,38 +93,56 @@ def frame(t):
             im = Image.blend(im, layer, a); d = ImageDraw.Draw(im)
         text(d, (W // 2, 1620), "bledi-bienne.ch", font("Bold", 70), WHITE, a)
         text(d, (W // 2, 1710), "Marokkanisches Restaurant, Biel", font("Medium", 44), GREY, a)
-    # S4 Vorteile 15.0-21.5
-    if 15.0 <= t < 21.8:
-        a = seg(t, 15.0, 15.4) * (1 - seg(t, 21.3, 21.8))
+    # S3b Zahnarzt im Laptop 11.8-16.8
+    if 11.8 <= t < 17.0:
+        a = seg(t, 11.8, 12.2) * (1 - seg(t, 16.6, 17.0))
+        text(d, (W // 2, 330), "Und für Praxen", font("SemiBold", 64), GREY, a)
+        slide = (1 - seg(t, 11.9, 12.6)) * 160
+        sc = 1.0 + 0.04 * seg(t, 12.6, 17.0)
+        sw, sh = int(880 * sc), int(550 * sc)
+        scr = ZSHOT.resize((sw, sh), Image.LANCZOS)
+        cx = W // 2; y0 = int(560 + slide)
+        if a > 0:
+            layer = im.copy(); ld = ImageDraw.Draw(layer)
+            ld.rounded_rectangle((cx - sw // 2 - 22, y0 - 22, cx + sw // 2 + 22, y0 + sh + 22), 26, fill=(40, 40, 46))
+            layer.paste(scr, (cx - sw // 2, y0))
+            ld.rounded_rectangle((cx - sw // 2 - 55, y0 + sh + 22, cx + sw // 2 + 55, y0 + sh + 52), 14, fill=(196, 196, 204))
+            ld.rounded_rectangle((cx - 80, y0 + sh + 22, cx + 80, y0 + sh + 34), 6, fill=(150, 150, 158))
+            im = Image.blend(im, layer, a); d = ImageDraw.Draw(im)
+        text(d, (W // 2, 1480), "bern-zahnarzt-team.ch", font("Bold", 70), WHITE, a)
+        text(d, (W // 2, 1570), "Zahnarztpraxis in Bern", font("Medium", 44), GREY, a)
+    # S4 Vorteile 17.0-23.2
+    if 17.0 <= t < 23.2:
+        a = seg(t, 17.0, 17.4) * (1 - seg(t, 22.8, 23.2))
         items = [("Du siehst den Entwurf,", "bevor wir starten."),
                  ("Deine Domain", "gehört dir."),
                  ("Um die Technik", "kümmern wir uns.")]
         for i, (l1, l2) in enumerate(items):
-            p = seg(t, 15.2 + i * 1.9, 15.8 + i * 1.9)
+            p = seg(t, 17.2 + i * 1.8, 17.8 + i * 1.8)
             y = 520 + i * 360 + (1 - p) * 40
             d.rounded_rectangle((90, y - 6, 100, y + 200), 5, fill=tuple(int(BG[k] + (ORANGE[k] - BG[k]) * p * a) for k in range(3)))
             text(d, (140, y), l1, font("Bold", 74), WHITE, p * a, "la")
             text(d, (140, y + 100), l2, font("Bold", 74), GREY if i != 0 else ORANGE, p * a, "la")
     # S5 CTA 21.8-27
-    if t >= 21.8:
-        a = seg(t, 21.8, 22.3)
+    if t >= 23.2:
+        a = seg(t, 23.2, 23.7)
         text(d, (W // 2, 640), "Wir schauen uns", font("Bold", 104), WHITE, a)
         text(d, (W // 2, 760), "deine Seite an.", font("Bold", 104), WHITE, a)
-        p = seg(t, 22.6, 23.1)
+        p = seg(t, 24.0, 24.5)
         text(d, (W // 2, 930 + (1 - p) * 30), "Kostenlos und unverbindlich.", font("Medium", 56), GREY, p)
-        p = seg(t, 23.4, 24.0)
+        p = seg(t, 24.8, 25.4)
         bw, bh = 700, 150; bx, by = (W - bw) // 2, 1100 + (1 - p) * 40
         col = tuple(int(BG[k] + (BLUE[k] - BG[k]) * p) for k in range(3))
         d.rounded_rectangle((bx, by, bx + bw, by + bh), 75, fill=col)
         text(d, (W // 2, by + bh // 2), "Link in der Bio", font("Bold", 62), WHITE, p, "mm")
-        p = seg(t, 24.2, 24.8)
+        p = seg(t, 25.6, 26.2)
         paste_icon(im, W // 2, 1370, 170, p)
         d = ImageDraw.Draw(im)
         brand(d, 1580, 84, "sherka", ".ch", p)
     return im
 
 cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
-       "-i", "-", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+       "-i", "-", "-i", "sherka-audio.wav", "-shortest", "-c:v", "libx264", "-pix_fmt", "yuv420p",
        "-crf", "18", "-preset", "medium", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", "sherka-reel.mp4"]
 p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 n = int(TOTAL * FPS)

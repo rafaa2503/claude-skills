@@ -32,7 +32,7 @@ Write XML-tagged briefs when prompting sub-steps: `<style>`, `<references>`, `<t
 | Need | Engine | Start from |
 |---|---|---|
 | Continuous camera flight, line of light, UI cards, sprites, glow, motion blur | **Python** | `templates/path_video.py` + `templates/make_audio_path.py` |
-| Physics, text effects, SVG choreography, filters, CSS, hand-drawn looks | **HTML + Playwright** | `templates/html_scene/` (`scene.html`, `capture.js`) |
+| Physics, text effects, SVG choreography, filters, CSS, hand-drawn looks | **HTML + Playwright** | `templates/html_scene/` (`scene.html` = minimal Matter.js demo; `bestof.html` + `make_audio_bestof.py` = full 24 s Sherka reel with path line, devices, Matter.js word cards, Rough.js scribbles; `capture.js` renders, `shots.js` makes test frames) |
 | Long explainer, many scenes, avatar, localisation | Remotion / HyperFrames, or OpenMontage (see sources.md) | only if the user asks |
 
 ### Python engine (reference: Sherka "Der Weg")

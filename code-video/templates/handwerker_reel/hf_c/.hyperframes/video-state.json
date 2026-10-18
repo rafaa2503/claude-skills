@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "historyId": "6bf6393c-f64e-4d01-900c-6eed86766956",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "05dfc82b203a5012b22d7a3c521fd196f8041d2534cab15b852161753f33b2a3",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/05/05dfc82b203a5012b22d7a3c521fd196f8041d2534cab15b852161753f33b2a3"
+    },
+    "assets/icon-crop.png": {
+      "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/51/51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "e20783dd2167fc1ac4b130d7603c53db5326c3ef9d3c26749892f376a08821dd",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/e2/e20783dd2167fc1ac4b130d7603c53db5326c3ef9d3c26749892f376a08821dd"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/6bf6393c-f64e-4d01-900c-6eed86766956/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "8cec9f8c-b62b-409b-af4f-6c2d486d9c18",
+      "completedAt": 1792359970167,
+      "output": "/home/user/claude-skills/sherka-variants/v12c-handwerker-wetter-hook-c.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

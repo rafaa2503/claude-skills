@@ -1,0 +1,30 @@
+<!doctype html><html lang="de" data-resolution="portrait"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>*{margin:0;padding:0;box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
+:root{--or:#ff9f1c;--red:#ff4a55;--g:#8d95a0}
+#root{position:relative;width:1080px;height:1920px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#fff;background:#0a0b0f;overflow:hidden}
+.abs{position:absolute}
+#vig{position:absolute;left:0;top:0;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 46%,rgba(255,255,255,.05),rgba(0,0,0,0) 60%)}
+#caps{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.cap{position:absolute;left:0;top:0;width:1080px;height:1920px;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1.06;letter-spacing:-1.5px;opacity:0}
+.cap>div{max-width:960px;text-align:center}.cap em{font-style:normal;color:var(--or)}.cap u{text-decoration:none;color:var(--red)}
+.cap q{quotes:"„" "“";color:var(--or);font-weight:800}
+#logo{position:absolute;left:0;top:1560px;width:1080px;text-align:center;opacity:0}</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="23.8" data-width="1080" data-height="1920">
+<audio id="mus" src="assets/audio.mp3" data-start="0" data-duration="23.8" data-track-index="9" data-volume="1"></audio>
+<div class="clip abs" data-start="0" data-duration="23.8" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px">
+<div id="vig"></div><div id="caps"></div>
+<div id="logo"><img src="assets/icon-crop.png" style="height:110px"><div style="font-weight:800;font-size:52px;margin-top:4px">sherka<span style="color:var(--or)">.ch</span></div></div>
+</div></div>
+<script>
+window.__timelines=window.__timelines||{};const tl=gsap.timeline({paused:true});const T=23.8;
+const P=[['Das<br><em>Traurigste,</em>', 0.08, 0.82], ['was mir ein<br>Handwerker<br>je geschrieben<br>hat,', 0.84, 2.5], ['war ein Satz<br>übers Wetter.', 2.88, 4.0], ['Er sagte,<br>er sei der<br>Beste der<br>Stadt.', 4.02, 5.9], ['Ich google<br>ihn.', 6.24, 7.05], ['<u>Nichts.</u>', 7.48, 7.95], ['Kein<br>Eintrag.', 8.0, 8.7], ['Keine<br>Fotos.', 8.72, 9.55], ['Dann den<br>Zweiten:', 10.02, 10.95], ['Mittel-<br>mässig.', 11.06, 11.95], ['Aber', 12.2, 12.8], ['Fotos.', 12.98, 13.4], ['Bewertungen.', 13.46, 14.08], ['Nummer<br>ganz oben.', 14.12, 15.1], ['Aber das war<br>nicht das<br>Schlimme.', 15.6, 16.75], ['Das Schlimme<br>war,', 16.9, 17.52], ['was der Beste<br>mir danach<br>schrieb:', 17.58, 19.3], ['<q>Muss wohl<br>am Wetter<br>liegen.</q>', 19.42, 21.15], ['Schick das dem<br>Besten, den<br>du kennst.', 21.38, 23.8]];
+const caps=document.getElementById('caps');
+P.forEach(([h,a,b],i)=>{const d=document.createElement('div');d.className='cap';d.innerHTML='<div>'+h+'</div>';
+ const longest=Math.max(...h.split('<br>').map(x=>x.replace(/<[^>]+>/g,'').length));const lines=h.split('<br>').length;
+ d.style.fontSize=Math.min(150,Math.floor(900/(longest*0.56)),Math.floor(560/(lines*1.06)))+'px';caps.appendChild(d);
+ tl.set(d,{opacity:1},a).fromTo(d,{y:26,opacity:0},{y:0,opacity:1,duration:.18,ease:'power2.out'},a);
+ if(b<T)tl.set(d,{opacity:0},b);});
+tl.fromTo('#vig',{opacity:.5},{opacity:1,duration:23.8,ease:'none'},0);
+tl.to('#logo',{opacity:1,duration:.6},22.7);
+window.__timelines["main"]=tl;tl.seek(0);
+</script></body></html>

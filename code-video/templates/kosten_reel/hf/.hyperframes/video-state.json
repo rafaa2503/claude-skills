@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "historyId": "28aea0a1-87f8-483e-9772-e6e4a2c67f55",
+  "currentRevision": "403968c2-a717-4aac-9e18-3735580ea506",
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "424c4b5b9e00b67c1d0a53368ff2d1df39fcd64f120b8d09cbbd88c721bfefd8",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/42/424c4b5b9e00b67c1d0a53368ff2d1df39fcd64f120b8d09cbbd88c721bfefd8"
+    },
+    "assets/icon-crop.png": {
+      "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/51/51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "e9821187fda5b1f06b570b571d53de8260036f5e6627b3aa3c140599722d768d",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/e9/e9821187fda5b1f06b570b571d53de8260036f5e6627b3aa3c140599722d768d"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    }
+  },
+  "revisions": {
+    "403968c2-a717-4aac-9e18-3735580ea506": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792343201789,
+      "endedAt": 1792343201790,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/8c/8ca6778bd3ecfdd9d015c016cb503f97a77fb4684ceeb64e56a1f999fa816441",
+          "after": "/root/.cache/hyperframes/history/28aea0a1-87f8-483e-9772-e6e4a2c67f55/blobs/e9/e9821187fda5b1f06b570b571d53de8260036f5e6627b3aa3c140599722d768d"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "d38b0724-91d3-4ad6-babe-27a5662e600e",
+      "completedAt": 1792343233048,
+      "output": "/home/user/claude-skills/sherka-variants/v10-versteckte-kosten.mp4",
+      "status": "completed",
+      "revision": "403968c2-a717-4aac-9e18-3735580ea506"
+    },
+    "retainedRevisions": [
+      "403968c2-a717-4aac-9e18-3735580ea506"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "historyId": "4d812b69-1854-4050-af69-d7f066b17045",
+  "currentRevision": "d67d1103-e724-4d46-b84b-20f7f7e8606b",
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "5b7cf421a1d42fcdb45db80b293b01b59551372f6eb62c8575ac5251e21c8744",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/5b/5b7cf421a1d42fcdb45db80b293b01b59551372f6eb62c8575ac5251e21c8744"
+    },
+    "assets/icon-crop.png": {
+      "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/51/51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "1b6aef020a5280fb8de147169bfd3e841fb272669a58ba8b53908ae050c12486",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/1b/1b6aef020a5280fb8de147169bfd3e841fb272669a58ba8b53908ae050c12486"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    }
+  },
+  "revisions": {
+    "d67d1103-e724-4d46-b84b-20f7f7e8606b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792360968574,
+      "endedAt": 1792360968579,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/a7/a7a399f6084950b621624091ee1ed650a89135a2ac4611868acf92043393883b",
+          "after": "/root/.cache/hyperframes/history/4d812b69-1854-4050-af69-d7f066b17045/blobs/1b/1b6aef020a5280fb8de147169bfd3e841fb272669a58ba8b53908ae050c12486"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "c499abbb-8620-4c21-9562-f0426ffccd75",
+      "completedAt": 1792361036219,
+      "output": "/home/user/claude-skills/sherka-variants/v13b-handwerker-wetter-grafik-b.mp4",
+      "status": "completed",
+      "revision": "d67d1103-e724-4d46-b84b-20f7f7e8606b"
+    },
+    "retainedRevisions": [
+      "d67d1103-e724-4d46-b84b-20f7f7e8606b"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

@@ -5,6 +5,8 @@ description: Router for code-built videos. Takes the user's video idea and picks
 
 # Video engine picker
 
+Vor dem Bauen eines Marketing-Reels: erst Skript und Hook mit `reel-marketing` klären.
+
 One job: choose the engine, justify briefly, hand off. Do not build anything here. Shared rules and delivery: `code-video`.
 
 ## Step 1 – extract the brief (ask at most 3 questions, only for what is missing)

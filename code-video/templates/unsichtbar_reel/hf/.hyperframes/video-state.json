@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "historyId": "c37c16b4-73cd-4130-a59a-020d501758af",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "a32632120aa509bf6b00aa78aee1ecf67b8fac80df68ce2b129a6d9c5b3acf9f",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/a3/a32632120aa509bf6b00aa78aee1ecf67b8fac80df68ce2b129a6d9c5b3acf9f"
+    },
+    "assets/icon-crop.png": {
+      "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/51/51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "4015f2d6829beea2d762c479706a74655a327c6f60655c5c6fd5d660aecb0a61",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/40/4015f2d6829beea2d762c479706a74655a327c6f60655c5c6fd5d660aecb0a61"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/c37c16b4-73cd-4130-a59a-020d501758af/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "80229001-884b-48e8-b40c-93414f044514",
+      "completedAt": 1792359079055,
+      "output": "/home/user/claude-skills/sherka-variants/v11-unsichtbar.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

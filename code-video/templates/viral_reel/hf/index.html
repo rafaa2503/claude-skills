@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de" data-resolution="portrait">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#000}
+:root{--or:#ff9f1c;--red:#ff2d3d;--w:#fff;--g:#969ea8}
+#root{position:relative;width:1080px;height:1920px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#fff;background:#08090c;overflow:hidden}
+.abs{position:absolute}
+.layer{position:absolute;left:0;top:0;width:1080px;height:1920px;display:none}
+#caps{position:absolute;left:0;top:200px;width:1080px;height:420px;pointer-events:none}
+.cap{position:absolute;left:0;top:0;width:1080px;height:420px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:150px;line-height:.98;letter-spacing:-2px;text-transform:uppercase;text-shadow:0 6px 0 rgba(0,0,0,.55),0 0 40px rgba(0,0,0,.6);opacity:0}
+.cap>div{max-width:1000px;text-align:center}.cap em{font-style:normal;color:var(--or)}.cap u{text-decoration:none;color:var(--red)}
+.phone{position:absolute;left:310px;top:640px;width:460px;height:968px;border-radius:62px;background:#101419;border:6px solid #2d343c;padding:6px}
+.scr{position:relative;width:436px;height:944px;border-radius:52px;overflow:hidden;background:#f1efe9}
+.scr img{position:absolute;left:0;top:0;width:436px}
+.hl{position:absolute;border-radius:26px;border:5px solid var(--or);box-shadow:0 0 30px rgba(255,159,28,.9);opacity:0}
+#flash{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#fff;opacity:0;pointer-events:none}
+#red{position:absolute;left:0;top:0;width:1080px;height:1920px;background:var(--red);opacity:0;pointer-events:none}
+/* Beispiel-Seiten (gestellt) */
+.mockA{background:#ffe600;color:#1a0dff;font-family:'Times New Roman',serif}
+.mockA .m1{position:absolute;left:0;top:0;width:100%;height:60px;background:#1a0dff;color:#ffe600;font-size:22px;font-weight:700;display:flex;align-items:center;white-space:nowrap;overflow:hidden}
+.mockA p{position:absolute;left:14px;font-size:11px;line-height:1.25;color:#333;width:408px}
+.pop{position:absolute;background:#fff;border:3px solid #000;box-shadow:6px 6px 0 #000;padding:14px;font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#000}
+.mockB{background:#2a2f3a;color:#9aa}
+.mockB .sl{position:absolute;left:0;top:70px;width:100%;height:330px;background:linear-gradient(135deg,#556,#334)}
+.mockB p{position:absolute;left:14px;font-size:9px;line-height:1.3;color:#7d8693;width:408px}
+.tiny{position:absolute;font-size:8px;color:#5b6370}
+.bx{position:absolute;left:0;width:100%;text-align:center;font-weight:600;color:#7a838d;font-size:30px}
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="22.4" data-width="1080" data-height="1920">
+ <audio id="mus" src="assets/audio.mp3" data-start="0" data-duration="22.4" data-track-index="9" data-volume="1"></audio>
+ <div class="clip abs" data-start="0" data-duration="22.4" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px">
+
+  <!-- Hook: Ring-Countdown -->
+  <div id="L_hook" class="layer">
+   <svg class="abs" style="left:240px;top:760px" width="600" height="600" viewBox="0 0 600 600"><circle cx="300" cy="300" r="270" fill="none" stroke="#2a2f38" stroke-width="26"/><circle id="ring" cx="300" cy="300" r="270" fill="none" stroke="#ff9f1c" stroke-width="26" stroke-linecap="round" stroke-dasharray="1696" stroke-dashoffset="1696" transform="rotate(-90 300 300)"/></svg>
+   <div id="cd" class="abs" style="left:0;top:880;width:1080px;top:830px;text-align:center;font-weight:800;font-size:380px;line-height:1;color:#fff;opacity:0">3</div>
+  </div>
+
+  <!-- Beispiel A -->
+  <div id="L_mA" class="layer">
+   <div class="phone"><div class="scr mockA">
+    <div class="m1"><span id="mq">★★★ WILLKOMMEN AUF UNSERER HOMEPAGE ★★★ SEIT 1998 ★★★ WILLKOMMEN AUF UNSERER HOMEPAGE ★★★</span></div>
+    <p style="top:80px">Herzlich willkommen auf der Internetseite unserer Firma. Wir sind ein traditionsreiches Unternehmen mit langjähriger Erfahrung in vielen Bereichen. Unsere Mitarbeiter sind stets bemüht. Mehr Informationen finden Sie unter dem Menüpunkt Über uns, Leistungen, Referenzen, Partner, Downloads, Links, Impressum.</p>
+    <p style="top:190px">Öffnungszeiten und Kontakt finden Sie im Impressum (ganz unten, bitte scrollen). Telefon: siehe Kontaktformular. Besucher seit 1998: 000412</p>
+    <div class="pop" style="left:50px;top:300px;width:340px;transform:rotate(-3deg)">🍪 Wir nutzen Cookies!<br><span style="font-size:14px;font-weight:400">Bitte akzeptieren Sie alle 47 Partner.</span></div>
+    <div class="pop" style="left:20px;top:520px;width:380px;transform:rotate(2deg);background:#ff2d3d;color:#fff">NEWSLETTER!!!<br><span style="font-size:14px;font-weight:400">Jetzt anmelden und nichts verpassen</span></div>
+    <div class="abs" style="left:30px;top:760px;width:376px;height:120px;background:#1a0dff;color:#ffe600;font-family:Arial;font-weight:800;font-size:28px;display:flex;align-items:center;justify-content:center;text-align:center">Bitte Mobilversion<br>wählen ➜</div>
+   </div></div>
+   <div class="bx" style="top:1630px">BEISPIEL, nachgestellt</div>
+  </div>
+
+  <!-- Beispiel B -->
+  <div id="L_mB" class="layer">
+   <div class="phone"><div class="scr mockB">
+    <div class="abs" style="left:0;top:0;width:100%;height:60px;background:#1d2129"><span class="abs" style="right:16px;top:14px;font-size:30px;color:#6b7482">≡</span><span class="abs" style="left:14px;top:20px;font-size:18px;color:#6b7482">FIRMA GMBH</span></div>
+    <div class="sl"></div>
+    <p style="top:420px">Seit über 25 Jahren stehen wir für Qualität und Kundennähe. Unser Team berät Sie umfassend und kompetent in allen Fragen rund um Ihr Anliegen. Sprechen Sie uns an. Wir freuen uns auf Ihre Anfrage. Weitere Informationen entnehmen Sie bitte unserer ausführlichen Unternehmensbeschreibung weiter unten. Gerne senden wir Ihnen auf Anfrage unsere Broschüre zu.</p>
+    <p style="top:540px">Unser Leistungsspektrum umfasst unter anderem: Beratung, Planung, Ausführung, Wartung, Service, Support, Schulung, Zertifizierung und vieles mehr. Jedes Projekt ist einzigartig.</p>
+    <div class="tiny" style="left:14px;top:880px">Tel. 0xx xxx xx xx · info@firma.example · Impressum · Datenschutz · AGB</div>
+   </div></div>
+   <div id="xx" class="abs" style="left:0;top:700px;width:1080px;text-align:center;font-weight:800;font-size:640px;line-height:1;color:var(--red);opacity:0;text-shadow:0 0 60px rgba(255,45,61,.6)">✕</div>
+   <div class="bx" style="top:1630px">BEISPIEL, nachgestellt</div>
+  </div>
+
+  <!-- Bledi -->
+  <div id="L_bl" class="layer">
+   <div id="phW" class="abs" style="left:0;top:0;width:1080px;height:1920px;transform-origin:540px 1500px">
+    <div class="phone"><div class="scr">
+     <img src="assets/bledi-mobile.png">
+     <div class="hl" id="hl1" style="left:2.4%;top:92.3%;width:22.2%;height:6.6%"></div>
+     <div class="hl" id="hl2" style="left:26.7%;top:92.3%;width:22.2%;height:6.6%"></div>
+     <div class="hl" id="hl3" style="left:51.1%;top:92.3%;width:22.2%;height:6.6%"></div>
+     <div class="hl" id="hl4" style="left:75.4%;top:92.3%;width:22.2%;height:6.6%"></div>
+    </div></div>
+   </div>
+   <div id="scrollx" class="abs" style="left:830px;top:900px;width:120px;text-align:center;opacity:0"><div style="font-size:120px;line-height:1">↕</div><div style="font-size:150px;line-height:.8;color:var(--red);font-weight:800;margin-top:-130px">✕</div></div>
+   <div class="bx" style="top:1630px">bledi-bienne.ch · mit Erlaubnis von Bledi</div>
+  </div>
+
+  <!-- Bewertung -->
+  <div id="L_rt" class="layer">
+   <img id="chip" src="assets/rating-chip.png" class="abs" style="left:-60px;top:900px;width:1200px;border-radius:60px;box-shadow:0 0 80px rgba(255,159,28,.35)">
+   <div class="bx" style="top:1630px;font-size:28px">laut Bledi-Website, Stand 18.10.2026</div>
+  </div>
+
+  <!-- leeres Handy -->
+  <div id="L_q" class="layer">
+   <div class="phone"><div class="scr" style="background:#e8e6df">
+    <div class="abs" style="left:40px;top:120px;width:300px;height:30px;border-radius:15px;background:#d4d1c8"></div>
+    <div class="abs" style="left:40px;top:180px;width:350px;height:22px;border-radius:11px;background:#d9d6cd"></div>
+    <div id="qm" class="abs" style="left:0;top:330px;width:436px;text-align:center;font-size:360px;font-weight:800;color:#b9b5aa">?</div>
+   </div></div>
+  </div>
+
+  <!-- CTA -->
+  <div id="L_cta" class="layer">
+   <img id="ic" src="assets/icon-crop.png" class="abs" style="left:449px;top:640px;height:230px;filter:drop-shadow(0 0 22px rgba(255,159,28,.5))">
+   <div id="ur" class="abs" style="left:0;top:890px;width:1080px;text-align:center;font-weight:800;font-size:112px;line-height:1.1">sherka<span style="color:var(--or)">.ch</span></div>
+   <div id="btn" class="abs" style="left:140px;top:1080px;width:800px;height:170px;border-radius:85px;background:#0a6fe0;box-shadow:0 14px 0 #064ea0;font-weight:800;font-size:72px;display:flex;align-items:center;justify-content:center;letter-spacing:1px">DM: WEBSITE</div>
+   <div id="arr" class="abs" style="left:0;top:1290px;width:1080px;text-align:center;font-size:150px;font-weight:800;color:var(--or);line-height:1">↓</div>
+   <div id="sub" class="abs" style="left:0;top:1470px;width:1080px;text-align:center;font-size:40px;font-weight:600;color:var(--g)">Gratis · Antwort innert eines Werktags</div>
+  </div>
+
+  <div id="caps"></div>
+  <div id="red"></div><div id="flash"></div>
+ </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const $=s=>document.querySelector(s);
+// ---- Layer-Fenster (Schnitte exakt auf die Stimme) ----
+const WIN=[['#L_hook',0,3.32],['#L_mA',3.32,4.77],['#L_mB',4.77,6.68],['#L_bl',6.68,12.58],['#L_rt',12.58,16.70],['#L_q',16.70,18.48],['#L_cta',18.48,22.4]];
+WIN.forEach(([s,a,b])=>{tl.set(s,{display:'block'},a);if(b<22.4)tl.set(s,{display:'none'},b)});
+tl.set('#L_hook',{display:'block'},0);
+// ---- Untertitel = Hauptbild: Phrasen mit exakten Zeiten ----
+const P=[
+ ['Handy<br><em>raus</em>',0.00,0.80],['Deine<br>Website',0.80,1.72],
+ ['<em>LOS</em>',2.64,3.30],
+ ['Siehst du den<br><em>Anruf-Button</em>?',3.32,4.75],['<u>Nein?</u>',4.77,5.36],['Dein Kunde<br>auch <u>nicht</u>',5.38,6.66],
+ ['Das ist<br><em>Bledi</em>',6.68,7.78],['<em>1</em><br>Tipp',7.80,8.60],['<em>0</em><br>Scrollen',8.62,9.66],
+ ['Anrufen',9.68,10.46],['Route',10.48,11.13],['Bestellen',11.15,11.84],['Menü',11.86,12.56],
+ ['<em>4,8</em> ★',12.58,13.96],['<em id="cnt">0</em><br>Bewertungen',13.98,15.90],['Sichtbar',15.92,16.68],
+ ['Und<br><u>deine</u>?',16.70,17.60],['Zähl<br>nach',17.62,18.45],
+ ['Schreib uns<br><em>WEBSITE</em>',18.48,19.86],['Wir schauen<br>sie uns an',19.88,21.14],['<em>Gratis</em>',21.16,22.40]];
+const caps=$('#caps');
+P.forEach(([h,a,b],i)=>{
+  const d=document.createElement('div');d.className='cap';d.innerHTML='<div>'+h+'</div>';
+  const plain=h.replace(/<[^>]+>/g,' ').trim();const longest=Math.max(...h.split('<br>').map(x=>x.replace(/<[^>]+>/g,'').length));
+  d.style.fontSize=Math.min(170,Math.floor(940/(longest*0.7)))+'px';
+  caps.appendChild(d);
+  tl.set(d,{opacity:1},a).fromTo(d,{scale:1.35,rotation:(i%2?-2:2)},{scale:1,rotation:0,duration:.14,ease:'power3.out'},a);
+  if(b<22.4)tl.set(d,{opacity:0},b);
+  tl.fromTo('#flash',{opacity:.22},{opacity:0,duration:.1},a);
+});
+// ---- Countdown 3 2 1 ----
+const cd=$('#cd');
+[['3',1.76],['2',2.13],['1',2.50]].forEach(([n,t])=>{tl.set(cd,{opacity:1,textContent:n},t).fromTo(cd,{scale:1.4},{scale:1,duration:.15,ease:'power3.out'},t)});
+tl.set(cd,{opacity:0},2.64);
+tl.to('#ring',{strokeDashoffset:0,duration:.9,ease:'none'},1.74);
+tl.set('#red',{opacity:.55},0).to('#red',{opacity:0,duration:.25},0.02);
+tl.to('#red',{opacity:.25,duration:.05},4.77).to('#red',{opacity:0,duration:.25},4.82);
+tl.to('#red',{opacity:.3,duration:.05},16.70).to('#red',{opacity:0,duration:.3},16.75);
+// Beispiel-Seiten: Zittern + Lauftext
+tl.fromTo('#L_mA .phone',{x:-8},{x:8,duration:.07,yoyo:true,repeat:19,ease:'none'},3.32);
+tl.fromTo('#mq',{x:0},{x:-520,duration:1.4,ease:'none'},3.32);
+tl.fromTo('#L_mB .phone',{x:-6},{x:6,duration:.07,yoyo:true,repeat:25,ease:'none'},4.77);
+tl.fromTo('#xx',{opacity:0,scale:2},{opacity:.9,scale:1,duration:.18,ease:'power3.out'},4.80).to('#xx',{opacity:.0,duration:.12},5.36);
+// Bledi: Highlights, Zoom auf Leiste, Scroll-Verbot
+tl.fromTo('#L_bl .phone',{y:120,scale:.9},{y:0,scale:1,duration:.25,ease:'power3.out'},6.68);
+tl.set('#hl1',{opacity:1},7.82).set('#hl1',{opacity:0},8.55);
+tl.fromTo('#scrollx',{opacity:0,scale:1.6},{opacity:1,scale:1,duration:.16,ease:'power3.out'},8.64).set('#scrollx',{opacity:0},9.66);
+[['#hl1',9.68,10.46],['#hl2',10.48,11.13],['#hl3',11.15,11.84],['#hl4',11.86,12.56]].forEach(([h,a,b])=>{tl.fromTo(h,{opacity:1,scale:1.18},{scale:1,duration:.16,ease:'power2.out'},a).set(h,{opacity:0},b)});
+// Bewertung: Chip knallt rein, Zahl zaehlt hoch
+tl.fromTo('#chip',{scale:.4,opacity:0},{scale:1,opacity:1,duration:.22,ease:'back.out(2.2)'},12.58);
+const cnt={v:0};tl.to(cnt,{v:162,duration:1.2,ease:'power2.out',onUpdate:()=>{const e=document.getElementById('cnt');if(e)e.textContent=Math.round(cnt.v)}},13.98);
+tl.to('#chip',{scale:1.08,duration:.4,yoyo:true,repeat:1},14.0);
+// leeres Handy: Fragezeichen wackelt, Bild zittert
+tl.fromTo('#qm',{rotation:-10},{rotation:10,duration:.12,yoyo:true,repeat:13,transformOrigin:'50% 50%',ease:'none'},16.72);
+tl.fromTo('#L_q .phone',{x:-10},{x:10,duration:.06,yoyo:true,repeat:25,ease:'none'},16.72);
+// CTA: Icon, Button blinkt, Pfeil springt
+tl.from('#ic',{scale:0,duration:.35,ease:'back.out(2)',transformOrigin:'50% 50%'},18.5).from('#ur',{clipPath:'inset(-20px 100% -20px 0)',duration:.3},18.7);
+tl.from('#btn',{scale:0,duration:.3,ease:'back.out(2)'},18.9).to('#btn',{scale:1.06,duration:.2,yoyo:true,repeat:9,ease:'sine.inOut'},19.3);
+tl.to('#arr',{y:26,duration:.22,yoyo:true,repeat:13,ease:'power1.inOut'},19.0).from('#sub',{opacity:0,duration:.3},19.9);
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body></html>

@@ -127,3 +127,11 @@ Lesson from two rejected scripts (abstract/hypothetical): a reel from an unknown
 - Layout: text zone y 230-480, progress bar y 500, phone y 540-1508; keep anything important out of the bottom ~400 px.
 - Sound carries tension: looped stopwatch tick (ElevenLabs SFX), a "klack" per highlighted button, stop-klack at the end, drone + tick continues on the empty screen, hard cut to silence, then impact + music for the CTA.
 - Voice is optional: `make_sound.py` takes `VO_PLAN` entries after `silencedetect`; without it the on-screen captions carry the message (most viewers watch muted).
+
+## 11. Viral / ADHD-cut format (reference: `templates/viral_reel/`, Sherka v9 "3-Sekunden-Check")
+Engine chosen by `video-engine-picker`: `video-hyperframes` (fast text swaps, cuts, <=25 s).
+- **Cut on the voice, not on the grid.** Generate the whole VO in one fast read (`eleven_v4`, voice "Turbo Tim", tag `[quickly]`, no pauses), then `silencedetect=noise=-33dB:d=0.12` gives the exact start/end of every phrase; each phrase = one caption + one visual cut (0.5-1.5 s).
+- Captions are the main picture: 112-170 px, uppercase, keyword in accent colour, pop-in (scale 1.35 -> 1, 0.14 s) and a 0.1 s white flash on every cut. Font size from the longest line: `min(170, 940/(chars*0.7))`. Wrap text in an inner block inside the flex caption box (flex swallows `<br>` and spaces otherwise).
+- Hard numbers only if checkable: 1 tap / 0 scrolling / 4 buttons (counted in DOM), 4.8 (162) shown on the client page with source + date on screen. No invented figures ("1000 Franken"), no real third-party sites shown as bad examples (fake mock labelled "BEISPIEL, nachgestellt"), no competitor name-calling (UWG).
+- Sound: countdown beeps synthesized, whoosh per cut, klack per number, quiet 128 BPM kick only while the voice talks; duck under VO; loudnorm -14.
+- CTA = one action with a keyword ("DM: WEBSITE") so replies can be counted.

@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "historyId": "7ad62dbb-8f6d-4c78-b39e-dfa2b8342506",
+  "currentRevision": "07b20fe4-9a35-4b56-9c8f-f88e5ab7e962",
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "a5b0e446e53a933832385bd5a631c39c01dba08af3dd5273a4b7a30700040a05",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/a5/a5b0e446e53a933832385bd5a631c39c01dba08af3dd5273a4b7a30700040a05"
+    },
+    "assets/icon-crop.png": {
+      "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/51/51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866"
+    },
+    "assets/rating-chip.png": {
+      "hash": "d74dc8703a718d119cd3558a2c76639aecb07104c4ce340cd820d9a7a00a23d8",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/d7/d74dc8703a718d119cd3558a2c76639aecb07104c4ce340cd820d9a7a00a23d8"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "19e5cb024df10bc4962dc98f7633d151f8d6d784c0ffa47a296cd766fbceee66",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/19/19e5cb024df10bc4962dc98f7633d151f8d6d784c0ffa47a296cd766fbceee66"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    },
+    "assets/bledi-mobile.png": {
+      "hash": "656124a9813b9435c4f26e5e20663772e818c6e56ca2c353cb681ddee4cd3de9",
+      "content": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/65/656124a9813b9435c4f26e5e20663772e818c6e56ca2c353cb681ddee4cd3de9"
+    }
+  },
+  "revisions": {
+    "0b7f889c-ba6a-4fdc-8b0e-ca574fc6f5eb": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792342308413,
+      "endedAt": 1792342308414,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/e8/e861a061b0c64feeb12201595120f2f29aa7b92b489e30da625a1dac9249763e",
+          "after": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/d4/d47e8f78b0a17a83e896966504d4137139a9ea6b0c9ef89cc30833cd953b4fdb"
+        }
+      }
+    },
+    "07b20fe4-9a35-4b56-9c8f-f88e5ab7e962": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792342358354,
+      "endedAt": 1792342358355,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/d4/d47e8f78b0a17a83e896966504d4137139a9ea6b0c9ef89cc30833cd953b4fdb",
+          "after": "/root/.cache/hyperframes/history/7ad62dbb-8f6d-4c78-b39e-dfa2b8342506/blobs/19/19e5cb024df10bc4962dc98f7633d151f8d6d784c0ffa47a296cd766fbceee66"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "927143cb-ba5b-41df-86cd-6d256994aa99",
+      "completedAt": 1792342389181,
+      "output": "/tmp/claude-0/viral.mp4",
+      "status": "completed",
+      "revision": "07b20fe4-9a35-4b56-9c8f-f88e5ab7e962"
+    },
+    "retainedRevisions": [
+      "07b20fe4-9a35-4b56-9c8f-f88e5ab7e962",
+      "0b7f889c-ba6a-4fdc-8b0e-ca574fc6f5eb"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

@@ -1,0 +1,259 @@
+<!doctype html><html lang="de-CH"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Arimo:wght@400;700&display=block" rel="stylesheet">
+<script src="timings.js"></script>
+<style>
+:root{--ink:#14131C;--bone:#F0F1F3;--amber:#FFA51E}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+body{font-family:'Archivo',sans-serif;color:var(--bone);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+.sc{position:absolute;inset:0;display:none}
+.abs{position:absolute}
+.hc{left:0;right:0;text-align:center}
+.h900{font-weight:900;letter-spacing:-.025em;line-height:1.02}
+.w{display:inline-block;will-change:transform,opacity}
+.a{color:var(--amber)}
+/* Karten */
+.card{position:absolute;left:60px;width:960px;background:var(--bone);border-radius:28px;padding:46px 52px;color:var(--ink);transform-origin:50% 50%;overflow:hidden}
+.card .stars{display:flex;gap:14px;height:76px}
+.card .stars svg{width:76px;height:76px}
+.card .q{font-weight:800;font-size:92px;line-height:1.05;letter-spacing:-.02em;margin-top:24px;white-space:nowrap}
+.card .w{transform-origin:0 80%}
+.card .sub{font-weight:800;font-size:92px;line-height:1.05;letter-spacing:-.02em;margin-top:10px;white-space:nowrap}
+.card .dim{position:absolute;inset:0;background:var(--ink);opacity:0;pointer-events:none;z-index:2}
+.card.fl{width:820px;left:130px;padding:40px 46px}
+.card.fl .stars{height:56px;gap:10px}.card.fl .stars svg{width:56px;height:56px}
+.card.fl .q{font-size:84px;margin-top:18px}
+/* Website-Vorlage */
+.site{position:absolute;inset:0;background:#EFE9DC;color:#3A3A36;font-family:'Arimo',Arial,sans-serif;overflow:hidden}
+.site .sb{height:56px}
+.site .ban{background:#D8CCAF;font-weight:700;font-size:24px;padding:12px 26px}
+.site .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;font-weight:700;font-size:34px;border-bottom:2px solid #DDD5C3}
+.site .hb{width:40px;height:28px;border-top:5px solid #3A3A36;border-bottom:5px solid #3A3A36;position:relative}
+.site .hb:after{content:'';position:absolute;left:0;right:0;top:6.5px;border-top:5px solid #3A3A36}
+.site .img{margin:26px;height:290px;border:3px solid #CFC8B8;display:flex;align-items:center;justify-content:center;gap:14px;font-size:22px;color:#6B675E;background:#F4F0E6}
+.site h4{font-weight:700;font-size:30px;margin:4px 26px 16px}
+.site .bar{height:14px;background:#D6CFBE;margin:0 26px 12px;border-radius:4px}
+.site .pr{font-size:28px;margin:22px 26px}
+.site .ft{position:absolute;bottom:18px;left:26px;font-size:18px;color:#8A857A}
+.phone{position:absolute;background:#0B0A10;border:10px solid #2B2B2E;border-radius:72px;overflow:hidden}
+.notch{position:absolute;top:16px;left:50%;width:150px;height:38px;margin-left:-75px;background:#000;border-radius:24px;z-index:3}
+/* Close-ups */
+.det{position:absolute;left:90px;width:860px;top:770px;height:610px;background:#EFE9DC;overflow:hidden;font-family:'Arimo',Arial,sans-serif;color:#3A3A36;border-radius:8px}
+.det .bez{position:absolute;left:0;top:0;bottom:0;width:34px;background:#2B2B2E}
+.frame{position:absolute;border:6px solid var(--amber);border-radius:10px}
+/* Anruf */
+.ring{position:absolute;left:540px;top:820px;border-radius:50%;border:5px solid rgba(240,241,243,.55);transform:translate(-50%,-50%)}
+.cursor{display:inline-block;width:6px;height:64px;background:var(--amber);vertical-align:-8px;margin-left:4px}
+</style></head><body><div id="stage"><div id="cam">
+
+<!-- SZENE Bewertungen -->
+<div class="sc" id="sRev">
+  <div class="abs hc" id="hdr" style="top:330px;font-weight:800;font-size:72px;letter-spacing:-.02em">Über Ihren Betrieb</div>
+  <div class="abs hc" id="cnt" style="top:425px;font-weight:700;font-size:44px;opacity:.6;font-variant-numeric:tabular-nums">1 Bewertung</div>
+  <div class="abs" id="stack" style="inset:0;transform-origin:540px 960px"></div>
+</div>
+
+<!-- SZENE Frage + Countdown -->
+<div class="sc" id="sQ">
+  <div class="abs hc h900" id="qtxt" style="top:640px;font-size:96px"></div>
+  <div class="abs hc" id="cd" style="top:1000px;font-weight:900;font-size:300px;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums">7</div>
+  <div class="abs hc" id="cdv" style="top:1310px;font-weight:800;font-size:72px;opacity:0">von 7</div>
+</div>
+
+<!-- SZENE Null -->
+<div class="sc" id="sZero">
+  <div class="abs hc h900" id="nie" style="top:280px;font-size:92px"></div>
+  <div class="abs hc" id="zero" style="top:560px;font-weight:900;font-size:560px;line-height:1;color:var(--amber)">0</div>
+  <div class="abs hc" id="von7" style="top:1200px;font-weight:800;font-size:96px">von 7</div>
+</div>
+
+<!-- SZENE Handy -->
+<div class="sc" id="sPhone">
+  <div class="abs hc h900" id="nur" style="top:230px;font-size:88px"></div>
+  <div id="phGrp" class="abs" style="inset:0;transform-origin:540px 965px">
+    <div class="phone" style="left:250px;top:480px;width:580px;height:970px"><div class="notch"></div>
+      <div class="site"><div class="sb"></div>
+        <div class="ban">Betriebsferien bis 14.08.2022</div>
+        <div class="hd"><span>Ihr Betrieb</span><span class="hb"></span></div>
+        <div class="img"><svg width="56" height="56" viewBox="0 0 24 24"><path d="M4 3h11l5 5v13H4z" fill="#fff" stroke="#9a958a" stroke-width="1.3"/><path d="M15 3v5h5" fill="none" stroke="#9a958a" stroke-width="1.3"/><path d="M6 18l4-5 3 3 2-2 3 4z" fill="#B5AE9F"/><circle cx="9" cy="10" r="1.6" fill="#CFC8B8"/></svg><span>bild1_final.jpg</span></div>
+        <h4>Über uns</h4><p style="font-size:20px;line-height:1.4;margin:0 26px;color:#6B675E">Herzlich willkommen auf unserer neuen Homepage. Hier finden Sie bald mehr Informationen über uns und unser Angebot.</p>
+        <div class="pr">Preise auf Anfrage</div>
+        <div class="ft">© 2019 Ihr Betrieb</div>
+      </div></div>
+  </div>
+</div>
+
+<!-- SZENE Close-ups -->
+<div class="sc" id="sCU">
+  <div class="abs hc h900" style="top:230px;font-size:88px">Nur auf Ihrer <br> <span class="a">Website.</span></div>
+  <div id="cuCard" class="card" style="top:440px;padding:40px 48px"><div class="stars" style="height:44px;gap:10px"></div><div class="q" style="font-size:72px;margin-top:16px" id="cuQ"></div></div>
+  <svg class="abs" style="left:0;top:0" width="1080" height="1920"><line id="cuLine" x1="520" y1="656" x2="520" y2="770" stroke="#FFA51E" stroke-width="6" stroke-linecap="round"/></svg>
+  <div class="det" id="det1"><div class="bez"></div><div class="dmv" style="position:absolute;inset:0">
+    <div style="position:absolute;left:84px;top:60px;width:700px;height:490px;border:6px solid #CFC8B8;background:#F4F0E6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+      <svg width="150" height="150" viewBox="0 0 24 24"><path d="M4 3h11l5 5v13H4z" fill="#fff" stroke="#9a958a" stroke-width="1.1"/><path d="M15 3v5h5" fill="none" stroke="#9a958a" stroke-width="1.1"/><path d="M6 18l4-5 3 3 2-2 3 4z" fill="#B5AE9F"/><circle cx="9" cy="10" r="1.6" fill="#CFC8B8"/></svg>
+      <div style="font-size:56px;color:#6B675E">bild1_final.jpg</div></div>
+    <div class="frame" style="left:64px;top:40px;width:740px;height:530px"></div></div></div>
+  <div class="det" id="det2"><div class="bez"></div><div class="dmv" style="position:absolute;inset:0">
+    <div style="position:absolute;left:90px;top:70px;font-weight:700;font-size:64px">Über uns</div>
+    <div style="position:absolute;left:90px;top:160px;width:680px;font-size:36px;line-height:1.35;color:#6B675E">Herzlich willkommen auf unserer neuen Homepage.</div>
+    <div style="position:absolute;left:90px;top:340px;font-size:80px">Preise auf Anfrage</div>
+    <div class="frame" style="left:66px;top:316px;width:744px;height:140px"></div></div></div>
+  <div class="det" id="det3"><div class="bez"></div><div class="dmv" style="position:absolute;inset:0">
+    <div style="position:absolute;left:34px;right:0;top:120px;height:200px;background:#D8CCAF;font-weight:700;font-size:54px;display:flex;align-items:center;padding-left:40px">Betriebsferien bis 14.08.2022</div>
+    <div style="position:absolute;left:90px;top:390px;font-weight:700;font-size:70px">Ihr Betrieb</div>
+    <div class="frame" style="left:48px;top:104px;width:792px;height:232px"></div></div></div>
+</div>
+
+<!-- SZENE Loeschen -->
+<div class="sc" id="sDel">
+  <div class="abs hc h900" id="schreibt" style="top:230px;font-size:92px"></div>
+  <div id="delCards"></div>
+</div>
+
+<!-- SZENE Anruf -->
+<div class="sc" id="sCall">
+  <div class="abs hc h900" id="ruft" style="top:230px;font-size:92px"></div>
+  <div class="ring" id="r1" style="width:240px;height:240px"></div><div class="ring" id="r2" style="width:240px;height:240px"></div>
+  <div class="abs" style="left:420px;top:700px;width:240px;height:240px;border-radius:50%;border:4px solid var(--bone);display:grid;place-items:center">
+    <svg width="110" height="110" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="none" stroke="#F0F1F3" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+  <div class="abs hc" style="top:1030px;font-weight:800;font-size:88px">Der Nächste</div>
+  <div class="abs hc" id="waehlt" style="top:1150px;font-weight:700;font-size:52px;opacity:.6">Wählt</div>
+</div>
+
+<!-- SZENE Ende -->
+<div class="sc" id="sEnd">
+  <div class="abs hc h900" id="e1" style="top:560px;font-size:88px"></div>
+  <div class="abs hc h900" id="e2" style="top:680px;font-size:88px"></div>
+  <div class="abs" id="eStars" style="left:0;right:0;top:930px;display:flex;justify-content:center;gap:24px"></div>
+  <div class="abs hc" id="eCta" style="top:1170px;font-weight:700;font-size:54px;opacity:0">Ihre Zahl in die Kommentare.</div>
+</div>
+
+</div></div>
+<script>
+const T=window.T;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+function bez(x1,y1,x2,y2){return x=>{if(x<=0)return 0;if(x>=1)return 1;let t=x;for(let i=0;i<10;i++){const cx=3*x1*t*(1-t)**2+3*x2*t*t*(1-t)+t**3-x;const d=3*x1*(1-t)**2+6*(x2-x1)*t*(1-t)+3*(1-x2)*t*t;if(Math.abs(d)<1e-6)break;t-=cx/d}t=cl(t);return 3*y1*t*(1-t)**2+3*y2*t*t*(1-t)+t**3}}
+const eo=bez(.23,1,.32,1), eio=bez(.77,0,.175,1), eback=bez(.16,1,.3,1);
+const STAR='M50 4 L61.8 37.6 L97 38.2 L69 59.6 L79.4 94 L50 73.6 L20.6 94 L31 59.6 L3 38.2 L38.2 37.6 Z';
+function stars(n,fill,size,stroke){let s='';for(let i=0;i<5;i++){const f=i<fill;s+=`<svg viewBox="0 0 100 100" style="width:${size}px;height:${size}px"><path d="${STAR}" fill="${f?'#FFA51E':'none'}" stroke="#14131C" stroke-width="${stroke}" stroke-linejoin="round"/></svg>`}return s}
+// --- Karten bauen ---
+const CARDS=[
+ {id:'k1',q:'Sah billig aus.',sub:['Gleich','wieder','weg.'],cy:785,rot:-4,from:[-520,-420,-14],t0:0,subT:'A3',subW:'w_A3',qT:'A2',qW:'w_A2'},
+ {id:'k2',q:'Was kostet das?',sub:['Stand','nirgends.'],cy:795,rot:3,from:[560,-380,12],t0:T.card2,subT:'B2',subW:'w_B2'},
+ {id:'k3',q:'Längst zu.',sub:['Dachte','ich.'],cy:805,rot:-2,from:[-540,-400,-12],t0:T.card3,subT:'C2',subW:'w_C2'},
+];
+const FLOOD=[{q:'Keine Nummer.',r:6,x:-40,y:830},{q:'Alles so klein.',r:-5,x:30,y:850},{q:'Wo ist das?',r:3,x:-20,y:870},{q:'Nächster.',r:-7,x:10,y:890}];
+const STARSH=46+118+46, COMPACT=46+76+24+97+46, FULL=COMPACT+10+97, FLH=40+56+18+88+40;
+const stack=$('stack');
+CARDS.forEach(c=>{const d=document.createElement('div');d.className='card';d.id=c.id;d.style.top=(c.cy-COMPACT/2)+'px';
+ d.innerHTML=`<div class="dim"></div><div class="stars">${stars(5,1,76,5)}</div><div class="q">${c.qW?c.q.split(' ').map(w=>`<span class="w">${w}</span>`).join(' '):c.q}</div><div class="sub">${c.sub.map(w=>`<span class="w">${w}</span>`).join(' ')}</div>`;stack.appendChild(d);c.el=d;});
+FLOOD.forEach((f,i)=>{const d=document.createElement('div');d.className='card fl';d.style.top=(f.y-FLH/2)+'px';
+ d.innerHTML=`<div class="dim"></div><div class="stars">${stars(5,1,56,5)}</div><div class="q">${f.q}</div>`;stack.appendChild(d);f.el=d;f.t0=T.flood[i];});
+// Wortzeilen
+function words(el,parts){el.innerHTML=parts.map(p=>p==='/'?'<br>':`<span class="w${p.a?' a':''}">${p.t}</span>`).join(' ');return [...el.querySelectorAll('.w')]}
+const W={
+ q:{els:words($('qtxt'),[{t:'Wie'},{t:'viele'},{t:'waren'},'/',{t:'je'},{t:'bei'},{t:'Ihnen?'}]),ts:[0,.2,.48,.82,1.12,1.34].map(x=>T.N1+x)},
+ nie:{els:words($('nie'),[{t:'Nie'},{t:'bei'},{t:'Ihnen.'}]),ts:[0,.24,.44].map(x=>T.N3+x)},
+ nur:{els:words($('nur'),[{t:'Nur'},{t:'auf'},{t:'Ihrer'},'/',{t:'Website.',a:1}]),ts:[0,.18,.4,.56].map(x=>T.N4+x)},
+ sch:{els:words($('schreibt'),[{t:'Die'},{t:'schreibt'},'/',{t:'niemand.'}]),ts:[0,.12,.5].map(x=>T.N5+x)},
+ ruft:{els:words($('ruft'),[{t:'Man'},{t:'ruft'},'/',{t:'woanders',a:1},{t:'an.'}]),ts:[0,.16,.42,.82].map(x=>T.N6+x)},
+ e1:{els:words($('e1'),[{t:'Und'},{t:'Ihre'},{t:'Website?'}]),ts:[T.end1-0.03,T.N7a+.2,T.N7a+.46]},
+ e2:{els:words($('e2'),[{t:'Wie'},{t:'viele'},{t:'Sterne?'}]),ts:[0,.14,.36].map(x=>T.N7b+x)},
+};
+function showWords(w,t){w.els.forEach((e,i)=>{const p=eo((t-w.ts[i])/0.1);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*20}px)`})}
+// Close-up Karte + Loeschkarten + Endsterne
+const CU=[{q:'Sah billig aus.',full:'Sah billig aus.\nGleich wieder weg.',d:'det1'},{q:'Stand nirgends.',full:'Was kostet das?\nStand nirgends.',d:'det2'},{q:'Längst zu.',full:'Längst zu.\nDachte ich.',d:'det3'}];
+$('cuCard').querySelector('.stars').innerHTML=stars(5,1,44,6);
+const DEL=[{y:600,r:-4},{y:910,r:3},{y:1220,r:-2}];
+DEL.forEach((d,i)=>{const e=document.createElement('div');e.className='card';e.style.top=(d.y-170)+'px';e.style.transform=`scale(.7) rotate(${d.r}deg)`;
+ e.innerHTML=`<div class="stars">${stars(5,1,76,5)}</div><div class="q" style="font-size:88px;white-space:pre-line;min-height:186px"><span class="tx"></span><span class="cursor"></span></div>`;$('delCards').appendChild(e);d.el=e;d.tx=e.querySelector('.tx');d.cur=e.querySelector('.cursor');d.full=CU[i].full;});
+function endStars(){let s='';for(let i=0;i<5;i++)s+=`<svg class="es" viewBox="0 0 100 100" style="width:140px;height:140px"><path d="${STAR}" fill="none" stroke="#F0F1F3" stroke-width="6" stroke-linejoin="round"/></svg>`;$('eStars').innerHTML=s}
+endStars();const ES=[...document.querySelectorAll('.es')];
+// --- Helfer ---
+const SX=[1,-.75,.5,-.3,.15,-.05],SY=[-.6,.45,-.3,.18,-.08,0];
+function shake(t,list,amp){let x=0,y=0;list.forEach(ti=>{const n=Math.floor((t-ti)*30+1e-6);if(n>=0&&n<6){x+=amp*SX[n];y+=amp*SY[n]}});return [x,y]}
+function land(t,t0,from){ // Karte fliegt in 0.2 s ein, landet mit Ueberschwinger
+ if(t<t0-0.2)return null;
+ if(t<t0){const p=(t-(t0-0.2))/0.2,q=p*p;return {x:from[0]*(1-q),y:from[1]*(1-q),r:from[2]*(1-q),s:1.18-(0.14*q)}}
+ const u=t-t0,e=Math.exp(-u*16)*Math.cos(u*28);return {x:0,y:0,r:-1.5*e,s:1+0.04*e}}
+function show(id){['sRev','sQ','sZero','sPhone','sCU','sDel','sCall','sEnd'].forEach(s=>$(s).style.display=s===id?'block':'none')}
+function camSet(s,x=0,y=0){$('cam').style.transform=`translate(${x}px,${y}px) scale(${s})`}
+function lerp(a,b,p){return a+(b-a)*p}
+// --- Bewertungsszene (auch Vorlauf mit t<0) ---
+function renderRev(t,qp){
+ show('sRev');
+ // Zaehler
+ let n=1;if(t>=T.card2)n=2;if(t>=T.card3)n=3;T.flood.forEach((f,i)=>{if(t>=f)n=4+i});
+ const cnt=$('cnt');cnt.textContent=n+(n===1?' Bewertung':' Bewertungen');
+ const lastJump=[0,T.card2,T.card3,...T.flood].filter(x=>t>=x).pop()||0;const cp=eo((t-lastJump)/0.13);cnt.style.transform=`scale(${1.15-.15*cp})`;
+ const hdrA=qp>0?1-cl(qp*3):1;$('hdr').style.opacity=hdrA;cnt.style.opacity=.6*hdrA;
+ // Karten
+ const landed=[...CARDS.map(c=>c.t0),...T.flood].filter(x=>t>=x).length;
+ CARDS.forEach((c,i)=>{const L=land(t,c.t0,c.from);const el=c.el;if(!L){el.style.display='none';return}el.style.display='block';
+  const later=[...CARDS.slice(i+1).map(k=>k.t0),...T.flood].filter(x=>t>=x).length;
+  const sink=later>0?eo((t-(i<2?CARDS[i+1].t0:T.flood[0]))/0.15):0;
+  const dy=Math.min(later,2)*22*Math.min(1,sink+(later>1?1:0));
+  el.style.transform=`translate(${L.x}px,${L.y+dy}px) rotate(${c.rot+L.r}deg) scale(${L.s*(later?0.97:1)})`;
+  el.querySelector('.dim').style.opacity=Math.min(.6,later*0.15);
+  // Einstempeln Zweitzeile
+  const tw=T[c.subW];const ws=c.sub.map((_,j)=>T[c.subT]+(tw[j]??tw[tw.length-1]+0.2*(j-tw.length+1)));const g=eo((t-ws[0]+0.06)/0.13);const gq=c.qW?eo((t-(T[c.qT]+T[c.qW][0])+0.06)/0.13):1;el.style.height=(STARSH+(COMPACT-STARSH)*gq+(FULL-COMPACT)*g)+'px';if(c.qW){const sr=el.querySelector('.stars');sr.style.transformOrigin='0 0';sr.style.transform=`scale(${1.55-0.55*gq})`}
+  el.querySelectorAll('.sub .w').forEach((w,j)=>{const u=t-ws[j];const p=cl(u/0.1);w.style.opacity=u>=0?1:0;w.style.transform=`scale(${1.25-.25*p}) translate(${u>=0&&u<0.1?Math.sin(u*120)*4:0}px,0)`});
+  if(c.qW){const qs=T[c.qW].map(x=>T[c.qT]+x);el.querySelectorAll('.q .w').forEach((w,j)=>{const u=t-qs[j];const p=cl(u/0.1);w.style.opacity=u>=0?1:0;w.style.transform=`scale(${1.25-.25*p})`})}
+  const coverT=i<2?CARDS[i+1].t0:T.flood[0];const cov=eo(cl((t-(coverT-0.03))/0.06));
+  el.querySelector('.q').style.opacity=1-cov;el.querySelector('.sub').style.opacity=1-cov;
+  if(i===0){const s0=el.querySelector('.stars svg');const u=t-(T.A1+0.42);const k=u>=0&&u<0.3?Math.exp(-u*12):0;s0.style.transformOrigin='50% 55%';s0.style.transform=`scale(${1+0.45*k}) rotate(${-15*k}deg)`}
+ });
+ FLOOD.forEach((f,i)=>{const el=f.el;if(t<f.t0){el.style.display='none';return}el.style.display='block';
+  const later=T.flood.slice(i+1).filter(x=>t>=x).length;el.style.transform=`translate(${f.x}px,0) rotate(${f.r}deg)`;el.querySelector('.dim').style.opacity=Math.min(.6,later*0.12);const nx=T.flood[i+1];el.querySelector('.q').style.opacity=nx===undefined?1:1-eo(cl((t-(nx-0.03))/0.06))});
+ // Kamera
+ let s=1;
+ if(t>0.23)s=lerp(1,1.035,cl((t-0.23)/(T.card2-0.23)));
+ if(t>=T.card2)s=lerp(1.035,1.06,cl((t-T.card2)/(T.card3-T.card2)));
+ if(t>=T.card3)s=1.06;
+ if(t>=T.C2)s=lerp(1.06,1.09,eo((t-T.C2)/0.2));
+ if(t>=T.flood[0])s=lerp(1.09,0.92,cl((t-T.flood[0])/(T.q-T.flood[0])));
+ const sh=shake(t,[0,T.card2,T.card3],14),sh2=shake(t,T.flood,8);
+ // Stapel schrumpft in Frage-Szene
+ if(qp>0){const p=eio(cl(qp));stack.style.transform=`translate(0,${(430-960)*p}px) scale(${1-0.58*p})`}else stack.style.transform='none';
+ return [s,sh[0]+sh2[0],sh[1]+sh2[1]];
+}
+function render(t){
+ let tt=t;if(t>=T.loop)tt=t-T.total; // Vorlauf fuer Loop
+ if(tt<T.q){const [s,x,y]=renderRev(tt,0);camSet(s,x,y);return}
+ if(t<T.zero){ // Frage + Countdown, Stapel oben
+  const qp=(t-T.q)/0.3;const [s]=renderRev(Math.min(t,T.q-0.001),qp);
+  $('sQ').style.display='block';showWords(W.q,t);
+  const cd=$('cd');const k=T.cd.filter(x=>t>=x).length;
+  $('cdv').style.opacity=k===0?0:.6;if(k===0){cd.style.opacity=0}else{cd.style.opacity=1;cd.textContent=String(8-k);const u=t-T.cd[k-1];
+   const sc=k===1?lerp(1.5,1,eo(cl(u/0.12))):(1.08-0.08*eo(u/0.1));const jit=k===7?Math.sin(t*90)*3:0;
+   cd.style.transform=`translate(${jit}px,0) scale(${sc})`}
+  const push=k===7?lerp(1,1.04,cl((t-T.cd[6])/(T.zero-T.cd[6]))):1;camSet(lerp(0.92,1,eo(cl(qp)))*push);return}
+ if(t<T.phone){show('sZero');camSet(1);
+  const u=t-T.zero;const z=$('zero');let sc=u<0.12?lerp(1.5,0.96,eo(u/0.12)):lerp(0.96,1,eo(cl((u-0.12)/0.12)));z.style.transform=`scale(${sc})`;
+  const sh=shake(t,[T.zero],10);$('cam').style.transform=`translate(${sh[0]}px,${sh[1]}px)`;
+  $('von7').style.opacity=eo((u-0.13)/0.1);showWords(W.nie,t);return}
+ if(t<T.cu[0]){show('sPhone');const u=t-T.phone;const p=eback(cl(u/0.47));
+  $('phGrp').style.transform=`scale(${lerp(2.2,1,p)}) translate(0,${u>0.47?(u-0.47)*30:0}px)`;showWords(W.nur,t);camSet(1);return}
+ if(t<T.del){show('sCU');camSet(1);const i=T.cu.filter(x=>t>=x).length-1;const u=t-T.cu[i];
+  $('cuQ').textContent=CU[i].q;['det1','det2','det3'].forEach((d,j)=>{const e=$(d);e.style.display=j===i?'block':'none';e.querySelector('.dmv').style.transform=`translateX(${-15+u*48}px)`;e.querySelector('.frame').style.opacity=eo(cl((u-0.08)/0.1))});
+  const ln=$('cuLine');const lp=eo(cl((u-0.066)/0.13));ln.setAttribute('y2',String(656+114*lp));ln.style.opacity=lp>0.01?1:0;return}
+ if(t<T.call){show('sDel');camSet(1);showWords(W.sch,t);const bs0=T.del+0.28;
+  DEL.forEach(d=>{const n=Math.max(0,d.full.length-Math.max(0,Math.floor((t-bs0)*60)));d.tx.textContent=d.full.slice(0,n);
+   const blink=(t<bs0)?1:(n===0?(Math.floor((t-bs0)*5)%2===0?1:0.15):1);d.cur.style.opacity=t>=bs0-0.1?blink:0});return}
+ if(t<T.end1){show('sCall');camSet(1);showWords(W.ruft,t);const u=t-T.call;
+  ['r1','r2'].forEach((r,i)=>{const v=u-i*0.4,p=cl(v/0.6);const e=$(r);e.style.width=e.style.height=(240+220*eo(p))+'px';e.style.opacity=(v>=0&&v<0.6)?(1-p)*(1-p):0});
+  $('waehlt').innerHTML='Wählt'+[0,1,2].map(k=>`<span style="opacity:${k<=Math.floor(u*5)%3?1:0}">.</span>`).join('');return}
+ show('sEnd');camSet(1);showWords(W.e1,t);showWords(W.e2,t);
+ ES.forEach((s,i)=>{const ts=T.stars+i*0.066;const p=eo((t-ts)/0.1);s.style.opacity=t>=ts?1:0;s.style.transform=`scale(${1.2-.2*p})`;
+  const path=s.querySelector('path');let fill='none',stroke='#F0F1F3',sc=1;
+  if(i<3&&t>=T.hes+i*0.1&&t<T.hes+0.38){fill='#F0F1F3'}
+  if(i===2&&t>=T.hes+0.2&&t<T.hes+0.38)s.style.transform=`translate(${Math.sin(t*120)*2}px,0)`;
+  if(i===0&&t>=T.snap){fill='#FFA51E';stroke='#FFA51E';const q=eo((t-T.snap)/0.13);s.style.transform=`scale(${1.35-.35*q})`}
+  path.setAttribute('fill',fill);path.setAttribute('stroke',stroke)});
+ $('eCta').style.opacity=.7*eo((t-(T.N7b_end-0.1))/0.15);
+}
+window.render=render;
+</script></body></html>

@@ -8,4 +8,5 @@
 | H5 | Carousel mit hartem Satz auf Slide 1 + Beweis (echte Seite, Vorher/Nachher) schlägt Werbe-Carousel ohne Beweis bei Shares | Tendenz | 0 | offen, Test: Fr Bledi-Vorher/Nachher | |
 | H6 | Zielgruppe im Text (Salon, Praxis…) bringt mehr Betriebs-DMs als generische Posts | Verdacht | 0 | offen | |
 | H3 | Die 829 Reichweite von Post 1 kamen von spezifischen Hashtags / Startschub, nicht vom Inhalt | Verdacht | 0 | offen, mit Post 2 (andere Hashtags, gleiches Format) prüfen | |
-| H7 | Szene mit Zähler und Wendung ("nicht besser, nur erreichbar") hält Reel-Zuschauer länger als Grafik-Reels | Verdacht | 0 | Skript fertig: drafts/2026-10-21-reel-verpasster-anruf | |
+| H7 | Szene mit Zähler und Wendung ("nicht besser, nur erreichbar") hält Reel-Zuschauer länger als Grafik-Reels | widerlegt vor dem Posten | 0 | Rafaa und Agent haben es selbst weggewischt: statischer Frame 0, keine Stimme, leblose Cartoon-Figuren | nicht gepostet |
+| H8 | Doppeldeutige 1-Stern-Bewertungskarten mit echten Stimmen, Countdown, Umdeutung ("Nur auf Ihrer Website") und Loop halten länger als Grafik-Reels (Ziel > 35 % über 3 s, Ø > 7 s) | Verdacht | 0 | Video fertig: drafts/2026-10-20-reel-ein-stern | |

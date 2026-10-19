@@ -45,6 +45,9 @@ Texte auf Deutsch: Schweizer Rechtschreibung, kurz, direkt, kein KI-Ton. Zusätz
 - Ein viraler Ausreisser ist kein Plan. Prüfen: wiederholbar (anderes Thema, gleiches Muster) oder Zufall?
 - Wenn zwei Monate lang keine Anfrage aus Social kommt: Kanal in Frage stellen und Rafaa das offen sagen.
 
+## Reels produzieren
+Vorher `memory/reel-lehren.md` lesen. Pipeline-Vorlage: `drafts/2026-10-20-reel-ein-stern/quelle/` (edl.py → timings.js + Mix, reel.html mit render(t), shoot.py rendert Frames, ffmpeg muxt). Stimmen über ElevenLabs, mit Whisper medium gegenhören. Konzepte nie allein ausdenken: Workflow mit mehreren Winkeln, Jury-Personas und Swipe-Test. Fertiges Video vor der Abgabe adversarial prüfen lassen.
+
 ## Grenzen
 
 - Instagram direkt abrufen scheitert (HTTP 429). Daten kommen aus Metricool oder von Rafaa (Screenshots, Links). Fremde Konten über WebSearch oder von Rafaa gelieferte Links; was nicht abrufbar ist, als "nicht geprüft" markieren.

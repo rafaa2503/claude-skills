@@ -27,7 +27,7 @@ Wie viele Sterne würde eine neue Kundin Ihrer Website geben? Eine Zahl reicht. 
 #kleinbetrieb #coiffeur #handwerkerschweiz #gastroschweiz #webdesignschweiz
 
 ## Posten
-- Cover: Frame bei ca. 2.3 s (Karte mit beiden Zeilen), Datei `cover.jpg`.
+- Cover: Frame bei 2.4 s (Karte mit beiden Zeilen), Datei `cover.jpg`.
 - Wenn möglich als Trial Reel (nur Nicht-Follower), sonst normal, 18 Uhr.
 - In der ersten Stunde auf jede Zahl mit einer trockenen Gegenfrage antworten ("3. Was fehlt für den vierten?"), nicht verkaufen.
 

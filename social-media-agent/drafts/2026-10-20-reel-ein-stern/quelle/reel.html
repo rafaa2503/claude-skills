@@ -189,7 +189,7 @@ function renderRev(t,qp){
  let n=1;if(t>=T.card2)n=2;if(t>=T.card3)n=3;T.flood.forEach((f,i)=>{if(t>=f)n=4+i});
  const cnt=$('cnt');cnt.textContent=n+(n===1?' Bewertung':' Bewertungen');
  const lastJump=[0,T.card2,T.card3,...T.flood].filter(x=>t>=x).pop()||0;const cp=eo((t-lastJump)/0.13);cnt.style.transform=`scale(${1.15-.15*cp})`;
- const hdrA=qp>0?1-cl(qp*3):1;$('hdr').style.opacity=hdrA;cnt.style.opacity=.6*hdrA;
+ const hdrA=qp>0?1-cl(qp*6):1;$('hdr').style.opacity=hdrA;cnt.style.opacity=.6*hdrA;
  // Karten
  const landed=[...CARDS.map(c=>c.t0),...T.flood].filter(x=>t>=x).length;
  CARDS.forEach((c,i)=>{const L=land(t,c.t0,c.from);const el=c.el;if(!L){el.style.display='none';return}el.style.display='block';
@@ -217,7 +217,7 @@ function renderRev(t,qp){
  if(t>=T.flood[0])s=lerp(1.09,0.92,cl((t-T.flood[0])/(T.q-T.flood[0])));
  const sh=shake(t,[0,T.card2,T.card3],14),sh2=shake(t,T.flood,8);
  // Stapel schrumpft in Frage-Szene
- if(qp>0){const p=eio(cl(qp));stack.style.transform=`translate(0,${(430-960)*p}px) scale(${1-0.58*p})`}else stack.style.transform='none';
+ if(qp>0){const p=eo(cl(qp));stack.style.transform=`translate(0,${(430-960)*p}px) scale(${1-0.58*p})`}else stack.style.transform='none';
  return [s,sh[0]+sh2[0],sh[1]+sh2[1]];
 }
 function render(t){

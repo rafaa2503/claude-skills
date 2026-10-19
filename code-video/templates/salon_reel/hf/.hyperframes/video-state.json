@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "ef0d7a9b-e6d1-4666-9b14-ea253129051e",
-  "currentRevision": "7158e81f-d840-4a2c-b405-5ee7243ed3b2",
+  "currentRevision": "ab585c7c-ea6d-4686-a085-fad74806ce5d",
   "pendingChanges": false,
   "files": {
     "assets/audio.mp3": {
-      "hash": "e9180dee1a151f1f89aedd72e8e7215417d105cf5301547c14de11e85ea9ce9b",
-      "content": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/e9/e9180dee1a151f1f89aedd72e8e7215417d105cf5301547c14de11e85ea9ce9b"
+      "hash": "f2c1d6bf208c7a203d98a1ba396a1719dd7835a93ba23a3e8c5c8f8793fa89c1",
+      "content": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/f2/f2c1d6bf208c7a203d98a1ba396a1719dd7835a93ba23a3e8c5c8f8793fa89c1"
     },
     "assets/icon-crop.png": {
       "hash": "51731d9153ad36d2649088bc58281f9fa01c0554454c76bd4bd70ce639fa0866",
@@ -17,8 +17,8 @@
       "content": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "781abc1f307b24f52b737e1b6ffaa200631c983800d8fd0124c599ca1af10b19",
-      "content": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/78/781abc1f307b24f52b737e1b6ffaa200631c983800d8fd0124c599ca1af10b19"
+      "hash": "a122601057a4ed8f2e1fdbae1a3da6f534f436a3a0fb978a5d4308e041ce6f38",
+      "content": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/a1/a122601057a4ed8f2e1fdbae1a3da6f534f436a3a0fb978a5d4308e041ce6f38"
     },
     "meta.json": {
       "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
@@ -78,6 +78,25 @@
           "after": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/78/781abc1f307b24f52b737e1b6ffaa200631c983800d8fd0124c599ca1af10b19"
         }
       }
+    },
+    "ab585c7c-ea6d-4686-a085-fad74806ce5d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792400641834,
+      "endedAt": 1792400641864,
+      "files": {
+        "assets/audio.mp3": {
+          "before": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/e9/e9180dee1a151f1f89aedd72e8e7215417d105cf5301547c14de11e85ea9ce9b",
+          "after": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/f2/f2c1d6bf208c7a203d98a1ba396a1719dd7835a93ba23a3e8c5c8f8793fa89c1"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/78/781abc1f307b24f52b737e1b6ffaa200631c983800d8fd0124c599ca1af10b19",
+          "after": "/root/.cache/hyperframes/history/ef0d7a9b-e6d1-4666-9b14-ea253129051e/blobs/a1/a122601057a4ed8f2e1fdbae1a3da6f534f436a3a0fb978a5d4308e041ce6f38"
+        }
+      }
     }
   },
   "checks": {
@@ -92,15 +111,15 @@
   },
   "renders": {
     "latest": {
-      "id": "85faa728-86e7-4de9-a36b-f34f3e076b9e",
-      "completedAt": 1792362121485,
-      "output": "/home/user/claude-skills/sherka-variants/v14-salon-2247-cartoon.mp4",
+      "id": "a9736d7a-d05d-471c-9ddd-9420481307b3",
+      "completedAt": 1792400724314,
+      "output": "/home/user/claude-skills/sherka-variants/v15-salon-2247-cartoon-mit-stimme.mp4",
       "status": "completed",
-      "revision": "7158e81f-d840-4a2c-b405-5ee7243ed3b2"
+      "revision": "ab585c7c-ea6d-4686-a085-fad74806ce5d"
     },
     "retainedRevisions": [
-      "7158e81f-d840-4a2c-b405-5ee7243ed3b2",
-      "f13743c6-eca3-4686-aad2-c424ea281b41"
+      "ab585c7c-ea6d-4686-a085-fad74806ce5d",
+      "7158e81f-d840-4a2c-b405-5ee7243ed3b2"
     ]
   },
   "pendingArtifactCleanup": []

@@ -1,6 +1,6 @@
 # Sherka-Startannahmen (alles unverifiziert, nach Daten überschreiben)
 
-Stand 19.10.2026. n = 1 Post. Diese Seite sind Wetten, keine Erkenntnisse.
+Stand 19.10.2026. Aktuelle Daten in `briefing.md` (6 Posts, 40 Follower). Diese Seite sind Wetten, keine Erkenntnisse.
 
 ## Was die erste Recherche hergab (dünn, überwiegend Vendor-Blogs)
 - Gründer-/Personenstimme schlägt Firmenseite (viele Quellen, keine unabhängige Messung).
@@ -10,7 +10,7 @@ Stand 19.10.2026. n = 1 Post. Diese Seite sind Wetten, keine Erkenntnisse.
 
 ## Startwetten (je 3 Tests, dann entscheiden)
 1. **Konkrete Kritik an echten Seiten** (anonymisiert oder mit Erlaubnis), Vorher/Nachher. Passt zum Angebot und zum Outbound-Test aus dem Kontext. Konfidenz: Verdacht.
-2. **Gesicht und Name.** Grösste bekannte Vertrauenslücke (kein Name/Foto). Ein Reel mit Rafaa, roh, Handy. Konfidenz: Verdacht.
+2. **Gesicht und Name.** Grösste Vertrauenslücke, aber Rafaa will es erst ab Woche 2 oder mit mehreren Kunden: "Wie ich angefangen habe" als Slides oder Reel. Konfidenz: Verdacht.
 3. **Tempocheck live**: Seite eines Betriebs messen, Ergebnis zeigen. Nutzt das eigene Werkzeug, konkret statt abstrakt.
 4. **Preis offenlegen / Preisanker**: Tabu-Thema in der Branche, kann Aufmerksamkeit ziehen. Nur posten, wenn Rafaa ein Preismodell festgelegt hat.
 5. **Wildcard-Pool**: Meinungs-Rant ("Warum Ihre Website nichts bringt"), Fehler aus eigenen Projekten, "Ich baue eine Website in 60 Sekunden gerafft".

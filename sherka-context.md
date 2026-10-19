@@ -58,3 +58,7 @@ Klares Versprechen, einfacher 3-Schritte-Ablauf, kostenloses Erstgespräch, Doma
 
 ## 9. Offene Fragen
 Zielbranche(n), Preismodell, Name und Foto für die Website, UID, Testimonials, italienische Version, Bio-Link auf Instagram.
+
+
+## 10. Update 19.10.2026
+Aktuelle Fakten, Marke und Instagram-Zahlen: `social-media-agent/references/briefing.md`. Der 30-Tage-Branchentest in §2 ist gestrichen (Rafaa will keinen 30-Tage-Plan und keine Nischen-Pflicht). Inhaber: Raffa Amro Elsherkasi, arbeitet allein.

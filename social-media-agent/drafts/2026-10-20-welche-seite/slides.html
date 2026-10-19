@@ -1,0 +1,77 @@
+<!doctype html><html lang="de-CH"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14131C;--bone:#F0F1F3;--amber:#FFA51E;--mute:#8d8c98}
+*{box-sizing:border-box;margin:0}
+body{background:#000;font-family:'Archivo',system-ui,sans-serif}
+.s{width:1080px;height:1350px;background:var(--ink);color:var(--bone);padding:96px 88px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.s.light{background:var(--bone);color:var(--ink)}
+.k{position:absolute;top:64px;left:88px;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.n{position:absolute;bottom:64px;right:88px;font-size:26px;color:var(--mute);font-weight:600}
+.w{position:absolute;bottom:64px;left:88px;font-size:30px;font-weight:800;letter-spacing:.02em}
+h1{font-size:132px;line-height:.98;font-weight:900;letter-spacing:-.03em}
+h2{font-size:92px;line-height:1.02;font-weight:800;letter-spacing:-.02em}
+p{font-size:44px;line-height:1.3;margin-top:36px;font-weight:500}
+.a{color:var(--amber)}
+.m{font-size:28px;color:var(--mute);margin-top:28px;font-weight:500}
+/* mock sites */
+.site{background:#fff;color:#222;border-radius:18px;margin-top:20px;overflow:hidden;height:820px;border:3px solid #cfd0d6;font-family:Arial,Helvetica,sans-serif}
+.site .bar{background:#e6e6ea;height:56px;display:flex;align-items:center;padding:0 22px;gap:10px;font-size:22px;color:#666}
+.dot{width:14px;height:14px;border-radius:50%;background:#bbb}
+.tag{display:inline-block;font-size:30px;font-weight:800;padding:8px 22px;border-radius:999px;background:var(--amber);color:var(--ink);letter-spacing:.04em}
+.tagd{background:var(--ink);color:var(--bone)}
+/* A: cluttered */
+.A .hd{background:linear-gradient(#7a7a8a,#555);color:#ddd;padding:26px;font-size:30px;text-align:center}
+.A .sl{height:210px;background:#c9c0b0;display:flex;align-items:center;justify-content:center;color:#888;font-size:26px}
+.A .t{padding:26px 30px;font-size:18px;line-height:1.35;color:#777}
+.A .t b{font-size:34px;color:#555;display:block;margin-bottom:10px;font-weight:400}
+.A .ft{position:absolute}
+/* B: clear */
+.B .hd{padding:30px 34px;display:flex;justify-content:space-between;align-items:center;font-size:30px;font-weight:700;border-bottom:3px solid #eee}
+.B .hero{padding:44px 34px}
+.B .hero h3{font-size:62px;line-height:1.05;font-weight:800;margin-bottom:20px}
+.B .hero p{font-size:30px;margin:0 0 30px;color:#444;font-weight:400}
+.btn{display:inline-block;background:#e8590c;color:#fff;font-size:34px;font-weight:700;padding:22px 40px;border-radius:12px}
+.B .info{display:flex;gap:20px;padding:0 34px}
+.B .info div{flex:1;background:#f4f4f6;border-radius:12px;padding:20px;font-size:26px;line-height:1.3}
+.B .info b{display:block;font-size:22px;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+ol{font-size:56px;line-height:1.25;margin-top:48px;padding-left:64px;font-weight:700}
+ol li{margin-bottom:26px}
+</style></head><body>
+
+<section class="s" id="s1"><div class="k">Beispiel für Salon, Praxis, Restaurant, Handwerk</div>
+<h1>Zwei Websites.<br>Ein Auftrag.<br><span class="a">Welche gewinnt?</span></h1>
+<p>Wischen Sie. Entscheiden Sie in 5 Sekunden.</p>
+<div class="w">SHERKA</div><div class="n">1/6</div></section>
+
+<section class="s light" id="s2"><div class="k">Seite A · erfundenes Beispiel</div>
+<div class="site A"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp; www.salon-beispiel-a.ch</div>
+<div class="hd">Willkommen auf unserer Website</div>
+<div class="sl">[ Bild-Slider ]</div>
+<div class="t"><b>Über uns</b>Seit vielen Jahren sind wir Ihr kompetenter Partner rund um das Thema Haare und Schönheit. Qualität und Kundenzufriedenheit stehen bei uns an erster Stelle. Unser engagiertes Team freut sich auf Ihren Besuch. Weitere Informationen finden Sie in unserem Menü unter «Leistungen» und «Kontakt».<br><br>Wir verwenden Cookies, um Ihr Erlebnis zu verbessern …</div></div>
+<div class="n">2/6</div></section>
+
+<section class="s light" id="s3"><div class="k">Seite B · erfundenes Beispiel</div>
+<div class="site B"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp; www.salon-beispiel-b.ch</div>
+<div class="hd"><span>Salon Beispiel</span><span style="font-size:24px;color:#e8590c">044 000 00 00</span></div>
+<div class="hero"><h3>Haarschnitt und Färben in Zürich-Altstetten</h3><p>Termine auch am Abend. Antwort innert einer Stunde.</p><span class="btn">Termin anfragen</span></div>
+<div class="info"><div><b>Heute offen</b>9 bis 19 Uhr</div><div><b>Wo</b>Musterstrasse 1</div></div></div>
+<div class="n">3/6</div></section>
+
+<section class="s" id="s4"><div class="k">Was ein Kunde in 5 Sekunden sucht</div>
+<h2>Drei Fragen.<br>Mehr Zeit gibt <span class="a">niemand.</span></h2>
+<ol><li>Was bieten Sie an?</li><li>Wo sind Sie?</li><li>Wie erreiche ich Sie?</li></ol>
+<div class="w">SHERKA</div><div class="n">4/6</div></section>
+
+<section class="s" id="s5"><div class="k">Das Ergebnis</div>
+<h2>Beide Betriebe sind gleich gut.<br><span class="a">Nur Seite B sagt es.</span></h2>
+<p>Seite A beantwortet keine der drei Fragen. Seite B alle, ohne Scrollen.</p>
+<p class="m">Beide Seiten sind erfunden und dienen als Beispiel.</p>
+<div class="w">SHERKA</div><div class="n">5/6</div></section>
+
+<section class="s" id="s6"><div class="k">Nächster Schritt</div>
+<h2>Wie würde <span class="a">Ihre Seite</span> abschneiden?</h2>
+<p>Schreiben Sie uns, was Ihr Betrieb macht. Wir melden uns innert eines Werktags mit einer ehrlichen Einschätzung.</p>
+<p><b>Erstgespräch über den Link in der Bio.</b></p>
+<div class="w">SHERKA · Biel/Bienne · sherka.ch</div><div class="n">6/6</div></section>
+</body></html>

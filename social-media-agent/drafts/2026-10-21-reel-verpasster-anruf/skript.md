@@ -1,6 +1,6 @@
 # Reel "Verpasster Anruf" (Handwerker, 17 s, Loop)
 
-Format: Animation im Stil des Salon-Reels, 1080x1920, Ton: Klingelton + Effekte, keine Stimme nötig (muss stumm lesbar sein). Farben: Ink #14131C, Knochenweiss, Amber nur für Zähler und Schlüsselwort. Kein Blau, keine Endkarte mit Button. Sie-Form. Szene ist erfunden, in der Caption so benannt.
+Format: Animation im Stil des Salon-Reels, 1080x1920, Ton: Klingelton + Effekte, keine Stimme nötig (muss stumm lesbar sein). Farben: Ink #14131C, Knochenweiss, Amber nur für Zähler und Schlüsselwort. Kein Blau, keine Endkarte mit Button. Sie-Form. Die Szene ist Animation und darf erfunden sein. Regel bleibt: keine erfundenen echten Kunden, Zitate oder Statistiken als Tatsache.
 
 Idee: Der Betrachter weiss nach 1,5 s, dass hier gleich Geld verloren geht, und wartet auf den Grund. Der Zähler macht den Verlust messbar. Die Wendung (Konkurrenz war nicht besser, nur erreichbar) kommt zuletzt und ist die Aussage. Das Ende schneidet zurück auf den klingelnden Anfang (Loop, Wiederschauen).
 
@@ -24,7 +24,7 @@ Idee: Der Betrachter weiss nach 1,5 s, dass hier gleich Geld verloren geht, und 
 - Stumm lesbar: Jede Aussage steht als Text.
 
 ## Caption
-Eine erfundene Szene. Die Situation kennt jeder Betrieb, der auf einer Leiter, hinter einer Fräse oder in der Küche steht.
+Auf der Leiter, hinter der Fräse, in der Küche: Das Handy klingelt immer dann, wenn die Hände voll sind.
 
 Wie viele Anrufe verpassen Sie diese Woche? Schreiben Sie die Zahl in die Kommentare.
 

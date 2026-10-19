@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "historyId": "fb918130-34d7-49e4-9a64-c4443e30c846",
+  "currentRevision": "0da5dfc3-9ad2-4993-b99e-37c1505b0958",
+  "pendingChanges": false,
+  "files": {
+    "assets/audio.mp3": {
+      "hash": "51748412a08df15300495eb0cef2f381939fe599aa0bb35265caff7ad231a503",
+      "content": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/51/51748412a08df15300495eb0cef2f381939fe599aa0bb35265caff7ad231a503"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "8d2a43dc776d76167eec75d46a8210adc4ef1f32a0bfbb5560a32bbb0ce0178c",
+      "content": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/8d/8d2a43dc776d76167eec75d46a8210adc4ef1f32a0bfbb5560a32bbb0ce0178c"
+    },
+    "meta.json": {
+      "hash": "c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5",
+      "content": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/c3/c36b611b260239883db683b23388b713cfcaffcc3882ad15f7b8a471176d13d5"
+    },
+    "package.json": {
+      "hash": "be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e",
+      "content": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/be/be25a28fdb3cdbff5ec69abf96e86738ec1d8b042f98396e1100bad74c0ced1e"
+    }
+  },
+  "revisions": {
+    "0da5dfc3-9ad2-4993-b99e-37c1505b0958": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792443755693,
+      "endedAt": 1792443755701,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/85/8565e8d57726a252ce96892163a41bbe33e7df9b0e58b7dd3bfd418f10f66b5c",
+          "after": "/root/.cache/hyperframes/history/fb918130-34d7-49e4-9a64-c4443e30c846/blobs/8d/8d2a43dc776d76167eec75d46a8210adc4ef1f32a0bfbb5560a32bbb0ce0178c"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "9b9723f5-dd37-48a0-902a-d7476e1b9485",
+      "completedAt": 1792443789215,
+      "output": "/home/user/claude-skills/sherka-variants/v16-verpasster-anruf.mp4",
+      "status": "completed",
+      "revision": "0da5dfc3-9ad2-4993-b99e-37c1505b0958"
+    },
+    "retainedRevisions": [
+      "0da5dfc3-9ad2-4993-b99e-37c1505b0958"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

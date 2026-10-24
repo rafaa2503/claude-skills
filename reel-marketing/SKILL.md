@@ -33,7 +33,7 @@ Evidenzlage: fast alles aus Blogs und Einzelberichten, keine offizielle Plattfor
 ## 4. Grenzen (Reichweiten-Reels dürfen locker sein, aber)
 - Meinung und Zuspitzung sind frei. **Keine erfundenen Zahlen als Tatsache, keine Garantien (Telefon klingelt), keine echten Firmen oder Mitbewerber als Negativbeispiel.** Ein Geschäftskonto-Reel ist Werbung, UWG gilt auch auf Instagram.
 - Erfundene Szenen ("Letzte Woche sagt mir einer…") nur ohne Name und Firma.
-- Echte Kundenseiten nur mit Einverständnis (Bledi: ja, Zahnarzt: unbestätigt). Mock-Seiten mit "BEISPIEL, nachgestellt" kennzeichnen.
+- Echte Kundenseiten nur mit Einverständnis (Bledi: ja, Zahnarzt: unbestätigt). Keine Mock-/Konzeptseiten im Video (siehe §9).
 - Wir-Form für die Agentur. Rafaa zeigt sich (noch) nicht: Text und Stimme statt Gesicht.
 - Versprechen im Video muss jemand halten: wer beantwortet DMs/Kommentare?
 
@@ -94,7 +94,6 @@ Bindende Verbote (gelten auch für alte Reels und fremde Storyboards)
 Look
 - Echtes Sherka-Logo (Repo `rafaa2503/sherka` `/logo/`, Kopie `/mnt/project-files/logo/original-website/`): Ink #14131C, Bone #F0F1F3, Punkt orange #FFA51E. Alte A/B/C-Logos nie.
 - Texttafeln ink/bone im Wechsel, orange Satzzeichen, Schluss mit Lockup. Dunkel/Apple-Look ist gut.
-- Konzept-Seiten im Video nicht im KI-Standard-Look (dunkel/Serif/Creme-Terrakotta).
 
 Was die Zahlen sagen (Metricool, Okt. 2026)
 - Übliche Reels: Ø 3,3–5,9 s Schauzeit, nur 15–30 % über 3 s. Bisher bestes: isometrisches Büro-Reel (31 s, Ø 10 s, 95 % Nicht-Follower), aber 0 neue Follower → Format behalten, Hook auf Inhaber zuschneiden.

@@ -49,4 +49,6 @@ Then load the chosen skill and start at its Workflow. If the user asks to compar
 - Never claim a voice exists before a TTS tool/connector is present; plan VO as a later step.
 - No invented claims (stats, testimonials). Real screenshots over mockups.
 - Third-party repos (OpenMontage) only on explicit request; licences: Remotion (company licence), OpenMontage AGPL-3.0, GSAP (own licence), others MIT/Apache.
-- Always end with the check from `code-video` §6 (contact sheet, ffprobe, loudness) before delivering.
+- Before building a Sherka reel: read `reel-marketing` §9 (Sherka-Stil).
+- Always end with the check before delivering (`code-video` §6): contact sheet ansehen · `ffprobe` Länge, 1080x1920, fps konstant, Ton stereo · Lautheit `ebur128` -14 LUFS · `blackdetect`/`freezedetect` (gewollte Tafeln benennen) · kurze Liste „was falsch ist“ mitschicken.
+- Templates and engine skills live in repo `rafaa2503/claude-skills`, branch `claude/sherka-context` (clone it when a template is needed).

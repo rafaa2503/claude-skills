@@ -32,6 +32,7 @@ Decision shortcuts:
 - Cinematic path/camera move -> `video-python`.
 - Data charts/stat cards -> `video-hyperframes` or `video-openmontage`.
 - User has real footage to cut -> not this family: transcribe first, cut by text (HyperFrames talking-head recut / Remotion), keep faces real.
+- Fremder Vorlagen-Clip + Texttafeln (Ei-Reel-Typ) -> keine Engine nötig: ffmpeg + HTML-Tafeln, siehe `code-video` §12.
 - Unsure -> `video-hyperframes` (cheapest to be wrong with).
 
 ## Step 3 – answer in this format (short)

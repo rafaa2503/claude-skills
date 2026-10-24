@@ -144,3 +144,10 @@ Engine chosen by `video-engine-picker`: `video-hyperframes` (fast text swaps, cu
 - Hard numbers only if checkable: 1 tap / 0 scrolling / 4 buttons (counted in DOM), 4.8 (162) shown on the client page with source + date on screen. No invented figures ("1000 Franken"), no real third-party sites shown as bad examples (fake mock labelled "BEISPIEL, nachgestellt"), no competitor name-calling (UWG).
 - Sound: countdown beeps synthesized, whoosh per cut, klack per number, quiet 128 BPM kick only while the voice talks; duck under VO; loudnorm -14.
 - CTA = one action with a keyword ("DM: WEBSITE") so replies can be counted.
+
+## 12. Fremder Original-Clip + Texttafeln (reference: Sherka Ei-Reel v2/v3, Okt. 2026)
+- Vorlage holen: Apify `apify/instagram-reel-scraper`, `includeDownloadedVideo: true` → MP4 ohne Insta-UI. Erst ansehen (Contact Sheet), Schnittzeiten der Vorlage messen (`ffmpeg -vf scdet` / Frame-Diff), nicht schätzen.
+- Clip 1:1 übernehmen (`-ss/-to`, neu encodieren 1080x1920, 30 fps), danach eigene Tafeln (HTML → PNG/Video) exakt auf die gemessenen Schnitte.
+- Ausgabe **stumm** + optional Vorschau mit Fremdton nur zum Timing; Raffa legt den Trend-Sound in der App drunter.
+- Melde-Risiko des fremden Clips einmal nennen. Texte/Verbote: `reel-marketing` §9.
+

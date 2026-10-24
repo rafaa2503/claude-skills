@@ -68,9 +68,10 @@ Zielbranche, Bio-Link prüfen, wer antwortet auf DMs, Zahnarzt-Einverständnis, 
 Ablauf
 - Erst recherchieren, dann **Ideen + Hooks zeigen, Raffa wählt**, erst dann bauen. Nie ein fertiges Video ohne gewählte Idee.
 - Von einem Reel ausgehen, das Raffa selbst gut findet, und dessen **Struktur 1:1 übernehmen**. Selbst erfundene Website-Gags wurden durchgehend abgelehnt („bullshit“, „zu langweilig“, „AI slop“).
-- Vorlage zuerst prüfen: `productType` = „ad“ heisst gekaufte Aufrufe, kein Formatbeleg. Das zuerst sagen.
+- Link ohne Text: kurz klären, ob **Inhalt oder Format** gemeint ist. Das Video **wirklich ansehen**, nicht nur Caption/Zahlen: Apify `apify/instagram-reel-scraper` mit `includeDownloadedVideo: true`, dann Contact Sheet mit ffmpeg.
+- Vorlage zuerst auf **bezahlte Reichweite** prüfen und das **als Erstes** sagen: `productType` = „ad“ oder gekaufte Aufrufe (Dienste wie why-buy.ch; Muster: viele Aufrufe, kaum Kommentare/Shares) = kein Formatbeleg.
 - Hooks auf **aktuellen Trend-Formaten und -Sounds** (`marketing/instagram/hook-recherche.md`). „Sounds machen das meiste aus“: Raffa schickt den Trend-Sound, Claude schneidet darauf (Claude hört nicht, nur messen).
-- Wenn Raffa „echten Clip“ sagt: Original-Clip verwenden, nicht nachbauen (Melde-Risiko bei fremdem Clip nennen).
+- Wenn Raffa „echten Clip“ sagt: fremden Original-Clip **1:1** verwenden (z. B. Ei-Clip 0–2,13 s, ohne Insta-UI), nicht in 3D nachbauen. Melde-Risiko (Urheberrecht) einmal nennen, Entscheidung bleibt bei Raffa.
 
 Inhalt
 - Hook verspricht **genau das, was das Video liefert**. Aufruf (Erstgespräch / „Schreib uns.“) erst am Schluss.
@@ -79,7 +80,16 @@ Inhalt
 - Nie „für kleine Betriebe“, kein #kmu/#kleinunternehmen/#kleinbetrieb. Sherka macht Websites für alle Betriebe.
 - Nie im Video: Preise, Bauzeiten, „von Hand gebaut“, Biel als Argument, Zweisprachigkeit.
 - Marketing-Sätze dürfen zugespitzt sein und müssen nicht belegbar sein („Die verkauft.“), kurz und laut. Erfundene **Zahlen** und Kundenzitate bleiben verboten.
+- Texttafel-Reel nach Vorlage: **Reihenfolge und Schnitt der Vorlage übernehmen**. Bewährt (Ei-Reel v3): „Brauchst du eine Website? / Die verkauft. / Modernes Design. / SEO-optimiert. / Schreib uns.“ + Logo-Lockup. **Stumm liefern**, den Trend-Sound legt Raffa in der Insta-App drunter (Vorschau mit Fremdton nur zum Timing).
+- **Nur echte Sherka-Seiten zeigen:** sherka.ch, Timar, Bledi, bern-zahnarzt-team.ch, takabul.ch. **Keine Konzeptseiten** (Nami, Azzurro, Kolben, Grundton) im Video, auch nicht als Beispiel.
+- Showreel: nicht nur Websites, auch **Funktionen**, die Sherka baut (Online-Buchung, Preis am Handy ändern, Anruf-Knopf). Nur zeigen, was Sherka wirklich liefert, und nichts als „Kundenprojekt“ ausgeben, das keines ist.
 - Kein Gesicht, Raffa filmt nicht. Insta: du-Form (Website: Sie).
+
+Bindende Verbote (gelten auch für alte Reels und fremde Storyboards)
+- **Kein Kommentar-Aufruf** („Zahl in die Kommentare“, „Schreib: Sichtbar“): V11, V15, V16 nicht so posten, Schluss nur „Schreib uns.“ oder nichts.
+- **Kein #kleinbetrieb / „kleine Betriebe“**, auch nicht in Captions anderer Agenten („Welche Seite“, „Ein Stern“, V16 vorher säubern).
+- **Keine erfundenen Kundenzitate** („Muss wohl am Wetter liegen.“, „Ich schäme mich fast…“): V13-Zitate vor dem Posten streichen. Echte Zitate nur mit schriftlicher Freigabe.
+- Bei Konflikt gilt diese Liste vor älteren Freigaben oder Vorlagen.
 
 Look
 - Echtes Sherka-Logo (Repo `rafaa2503/sherka` `/logo/`, Kopie `/mnt/project-files/logo/original-website/`): Ink #14131C, Bone #F0F1F3, Punkt orange #FFA51E. Alte A/B/C-Logos nie.

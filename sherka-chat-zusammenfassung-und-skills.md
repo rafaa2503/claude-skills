@@ -94,7 +94,7 @@ Ein anderer Chat hat `reel-marketing` §9 **"Sherka-Stil (Raffas Korrekturen)"**
 - **Erfundene Zitate:** "Muss wohl am Wetter liegen." (V13) und "Ich schäme mich fast…" sind erfundene Kundenzitate. Rafaa hat V13b freigegeben, die Regel nennt aber Kundenzitate als verboten. Klären, was gilt.
 - **Preise in der Salon-Caption** ("Preise, Öffnungszeiten…") meint Inhalte der Kunden-Website, nicht Sherka-Preise. Trotzdem prüfen.
 - **Ablauf:** In diesem Chat habe ich ab V12 Skript und Hooks gezeigt und Freigabe geholt. Bei V16 kam das Storyboard von einem anderen Agenten, das habe ich ohne zusätzliche Hook-Auswahl gebaut.
-- **Offene Entscheidung:** Welche Fassung gilt, wenn zwei Regeln kollidieren? Vorschlag: die neuesten Korrekturen von Raffa in §9 gelten, V15/V16 ohne Kommentar-Aufruf neu fassen (Schluss: Send-Satz oder nichts).
+- **Entschieden (24.10.2026):** Kommentar-Aufruf, #kleinbetrieb und erfundene Zitate sind bindend verboten (`reel-marketing` §9, „Bindende Verbote“). V11/V13/V15/V16 vor dem Posten bereinigen.
 
 ## Teil C – Wo liegt was
 - Videos: `sherka-variants/` (V1–V16, `voice-tests/`).

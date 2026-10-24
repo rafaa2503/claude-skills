@@ -10,7 +10,7 @@ Evidenzlage: fast alles aus Blogs und Einzelberichten, keine offizielle Plattfor
 
 ## 1. Ziel festlegen (eins pro Reel, nicht zwei)
 - **Reichweite** (Views, Sends), **Leads** (Kommentar/DM) oder **Vertrauen** (Beweis, Kundenseite).
-- Der Account hat 22 Follower (Stand 17.10.2026): Anfangs zählt Reichweite an Nicht-Follower. Erwartung: Hunderte bis wenige Tausend Views, kein sicherer Treffer. Test statt Hoffnung.
+- Der Account hat ca. 40 Follower (Stand 20.10.2026): Anfangs zählt Reichweite an Nicht-Follower. Erwartung: Hunderte bis wenige Tausend Views, kein sicherer Treffer. Test statt Hoffnung.
 
 ## 2. Was der Algorithmus laut Quellen belohnt
 1. Schauzeit und Durchschauquote, Wiederholungen (kurz schlägt lang).
@@ -47,7 +47,7 @@ Evidenzlage: fast alles aus Blogs und Einzelberichten, keine offizielle Plattfor
 - Pro Idee **3 Hook-Varianten** derselben Geschichte, nacheinander oder als Trial Reels (nur Nicht-Follower; Einzelquelle, vorher prüfen, ob Rafaas Konto es hat).
 - Metriken in Insights/Metricool: **Sends pro Reichweite, Halten nach 3 s, Durchschauquote, Saves, Profilbesuche, Kommentare/DMs.**
 - Entscheid nach 3 Tagen: Gewinner-Hook behalten, nächste Geschichte mit derselben Struktur.
-- Pro Woche max. 3 Reels, mindestens ein Test.
+- Pro Woche 3–4 Reels, Storys täglich, Di–Fr 10:00 sonst 18:00 posten. Mindestens ein Test.
 
 ## 7. Ausgabeformat (immer so antworten, kurz)
 ```
@@ -63,3 +63,29 @@ Caption: 1–2 Sätze, Stichwort/Frage am Ende, 3–5 gezielte Hashtags (nicht #
 
 ## 8. Offene Punkte von Sherka (vor Leads klären)
 Zielbranche, Bio-Link prüfen, wer antwortet auf DMs, Zahnarzt-Einverständnis, Preis/Preisanker.
+
+## 9. Sherka-Stil (Raffas Korrekturen — vor jedem Reel lesen, jede neue Korrektur hier ergänzen)
+Ablauf
+- Erst recherchieren, dann **Ideen + Hooks zeigen, Raffa wählt**, erst dann bauen. Nie ein fertiges Video ohne gewählte Idee.
+- Von einem Reel ausgehen, das Raffa selbst gut findet, und dessen **Struktur 1:1 übernehmen**. Selbst erfundene Website-Gags wurden durchgehend abgelehnt („bullshit“, „zu langweilig“, „AI slop“).
+- Vorlage zuerst prüfen: `productType` = „ad“ heisst gekaufte Aufrufe, kein Formatbeleg. Das zuerst sagen.
+- Hooks auf **aktuellen Trend-Formaten und -Sounds** (`marketing/instagram/hook-recherche.md`). „Sounds machen das meiste aus“: Raffa schickt den Trend-Sound, Claude schneidet darauf (Claude hört nicht, nur messen).
+- Wenn Raffa „echten Clip“ sagt: Original-Clip verwenden, nicht nachbauen (Melde-Risiko bei fremdem Clip nennen).
+
+Inhalt
+- Hook verspricht **genau das, was das Video liefert**. Aufruf (Erstgespräch / „Schreib uns.“) erst am Schluss.
+- Spannung statt Erklärung. Nichts Offensichtliches erklären, keine Erklärsätze im Bild („Diese Pizzeria gibt es nicht“).
+- **Keine Serie** (Teil 1/2), **kein Kommentar-Aufruf**, Wort **„Wirt“ nie**.
+- Nie „für kleine Betriebe“, kein #kmu/#kleinunternehmen/#kleinbetrieb. Sherka macht Websites für alle Betriebe.
+- Nie im Video: Preise, Bauzeiten, „von Hand gebaut“, Biel als Argument, Zweisprachigkeit.
+- Marketing-Sätze dürfen zugespitzt sein und müssen nicht belegbar sein („Die verkauft.“), kurz und laut. Erfundene **Zahlen** und Kundenzitate bleiben verboten.
+- Kein Gesicht, Raffa filmt nicht. Insta: du-Form (Website: Sie).
+
+Look
+- Echtes Sherka-Logo (Repo `rafaa2503/sherka` `/logo/`, Kopie `/mnt/project-files/logo/original-website/`): Ink #14131C, Bone #F0F1F3, Punkt orange #FFA51E. Alte A/B/C-Logos nie.
+- Texttafeln ink/bone im Wechsel, orange Satzzeichen, Schluss mit Lockup. Dunkel/Apple-Look ist gut.
+- Konzept-Seiten im Video nicht im KI-Standard-Look (dunkel/Serif/Creme-Terrakotta).
+
+Was die Zahlen sagen (Metricool, Okt. 2026)
+- Übliche Reels: Ø 3,3–5,9 s Schauzeit, nur 15–30 % über 3 s. Bisher bestes: isometrisches Büro-Reel (31 s, Ø 10 s, 95 % Nicht-Follower), aber 0 neue Follower → Format behalten, Hook auf Inhaber zuschneiden.
+- Gewinner-Formate der Konkurrenz-Auswertung (`marketing/instagram/konkurrenz-reels/`): POV-Making-of mit Geräuschen, Wissensfrage-Hook, Vorher/Nachher pro Branche; unter 15 s oder über 60 s.

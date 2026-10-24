@@ -5,6 +5,8 @@ description: Build short brand/social videos (Reels, Shorts, spec ads, kinetic t
 
 # Code Video
 
+**Before every Sherka reel read `reel-marketing` §9 (Sherka-Stil) — Raffa's corrections. New correction from Raffa → add it there in the same turn.**
+
 Per-engine skills: `video-engine-picker` (chooses), `video-python`, `video-html-playwright`, `video-effects-libs`, `video-remotion`, `video-hyperframes`, `video-openmontage`. This skill holds the shared rules.
 
 15-30 s, 1080x1920, every frame produced by code, identical on every render.
@@ -82,13 +84,20 @@ music >= 12 dB under words, master -14 LUFS / -1.25 dBTP. Verify with `volumedet
   flowing read (not short lines spread across the picture), then anchor beats to words. Not available by default here; Piper (local
   TTS) exists only inside OpenMontage's setup. Robotic German costs trust — skip rather than fake.
 - **Rough cut from raw footage:** transcribe first, cut from the text, have Claude check its own render. Needs real footage.
+- **Captions from any audio (own voice, foreign clip):** `faster-whisper` (pip, free) gives word timings: 2-3 words per caption.
+  ElevenLabs voice: use its own timestamps instead. Install only when a real voice track exists.
+- **Cut pauses in a real take:** remove pauses > 0.3 s, keep 0.1 s air before/after each sentence, never cut inside a word
+  (`silencedetect` + whisper word times). Only for real recordings.
 
 ## 6. Check before sending (mandatory)
 1. Test frames → contact sheet → *look at it*: overlaps, clipped sprites, blown-out glow, text vs line.
 2. Full render, then phone encode: `-crf 24 -maxrate 8M -preset slow -pix_fmt yuv420p -movflags +faststart`
    (a crf-17 master was 125 MB, delivered 4 MB).
-3. `ffprobe`: duration, 1080x1920, audio present, stereo. `volumedetect`.
-4. Send with `SendUserFile` (`display: "attach"` if inline play fails; send the MP3 alone when "I hear nothing").
+3. `ffprobe`: duration, 1080x1920, **frame rate** (30 or 60, constant), audio present, stereo. Loudness with `ebur128` (target -14 LUFS).
+4. **Black and frozen frames:** `ffmpeg -i out.mp4 -vf "blackdetect=d=0.1:pix_th=0.05,freezedetect=n=-60dB:d=0.5" -an -f null -`.
+   Intended black (tafel, end card) is fine: name it. Anything else is a bug.
+5. Write the result as a short list "was falsch ist" (or "nichts gefunden") and send it with the video.
+6. Send with `SendUserFile` (`display: "attach"` if inline play fails; send the MP3 alone when "I hear nothing").
 
 ## 7. Sandbox facts and pitfalls
 - Available: ffmpeg, PIL, numpy, Playwright via Node (`/opt/node-tools/node_modules/playwright`,

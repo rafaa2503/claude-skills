@@ -78,6 +78,24 @@ DM-Zuständigkeit, Zahnarzt-Einverständnis, Zielbranche, ob Rückruf-/Buchungs-
 ### B6. Verbindungen (Connectors)
 - **ElevenLabs** (nur Stimme/Transkription; instabil wegen Free Tier), **Metricool** (Instagram-Daten, Planen), **Gmail**, **Google Drive**, **GitHub** (Repo), **Spotify**, **Claude Docs**, **Apify** (neu).
 
+## Teil D – Ergänzungen aus einem parallelen Chat (im Repo gemerged, 24.10.2026)
+Ein anderer Chat hat `reel-marketing` §9 **"Sherka-Stil (Raffas Korrekturen)"** und einen **Schluss-Check** in `code-video` §6 / `video-engine-picker` ergänzt. Das gilt ab jetzt vor jedem Reel. Kern:
+- Ablauf: erst recherchieren, **Ideen + Hooks zeigen, Raffa wählt**, dann bauen. Struktur eines Reels übernehmen, das Raffa selbst gut findet. Selbst erfundene Website-Gags wurden abgelehnt.
+- Hook verspricht genau das, was das Video liefert. Aufruf erst am Schluss. **Keine Serie, kein Kommentar-Aufruf, Wort "Wirt" nie, nie "für kleine Betriebe" und kein #kmu/#kleinunternehmen/#kleinbetrieb.** Nie im Video: Preise, Bauzeiten, "von Hand gebaut", Biel als Argument, Zweisprachigkeit. Marketing-Sätze dürfen zugespitzt sein, **erfundene Zahlen und Kundenzitate bleiben verboten.** Insta: du-Form.
+- Look: **echtes Sherka-Logo** (Ink #14131C, Bone #F0F1F3, Punkt orange #FFA51E; Quelle Repo `rafaa2503/sherka` `/logo/`), keine alten A/B/C-Logos. Texttafeln ink/bone im Wechsel, orange Satzzeichen, Schluss mit Lockup.
+- Zahlen (Metricool Okt. 2026): übliche Reels Ø 3,3–5,9 s Schauzeit, nur 15–30 % über 3 s. Bestes bisher: isometrisches Büro-Reel (31 s, Ø 10 s, 95 % Nicht-Follower, aber 0 neue Follower). Gewinner-Formate der Konkurrenz: POV-Making-of mit Geräuschen, Wissensfrage-Hook, Vorher/Nachher pro Branche.
+- Tipps: Trend-Formate und -Sounds nutzen (Raffa schickt den Sound, Claude schneidet). Posten: 3–4 Reels pro Woche, Di–Fr 10:00, sonst 18:00.
+- Schluss-Check vor jeder Auslieferung: Kontaktbogen ansehen, `ffprobe` (1080x1920, konstante fps, Stereo), Lautheit `ebur128` -14 LUFS, `blackdetect`/`freezedetect`, Liste "was falsch ist" mitschicken.
+
+### Konflikte zwischen diesen Regeln und meinen Reels in diesem Chat
+- **Kommentar-Aufruf:** V15 (Salon, "Zahl in die Kommentare") und V16 ("Zahl in die Kommentare") brechen die Regel. V11 ("Schreib: Sichtbar") ebenso.
+- **Hashtag #kleinbetrieb** (V16-Caption des Fremdagenten) und "kleine Betriebe" sind verboten.
+- **Logo:** Ich habe `icon-crop.png` aus dem hochgeladenen Logo-Zip genutzt. Ob das das **echte aktuelle Logo** ist, ist ungeprüft. Gegen `/logo/` im Repo `rafaa2503/sherka` abgleichen.
+- **Erfundene Zitate:** "Muss wohl am Wetter liegen." (V13) und "Ich schäme mich fast…" sind erfundene Kundenzitate. Rafaa hat V13b freigegeben, die Regel nennt aber Kundenzitate als verboten. Klären, was gilt.
+- **Preise in der Salon-Caption** ("Preise, Öffnungszeiten…") meint Inhalte der Kunden-Website, nicht Sherka-Preise. Trotzdem prüfen.
+- **Ablauf:** In diesem Chat habe ich ab V12 Skript und Hooks gezeigt und Freigabe geholt. Bei V16 kam das Storyboard von einem anderen Agenten, das habe ich ohne zusätzliche Hook-Auswahl gebaut.
+- **Offene Entscheidung:** Welche Fassung gilt, wenn zwei Regeln kollidieren? Vorschlag: die neuesten Korrekturen von Raffa in §9 gelten, V15/V16 ohne Kommentar-Aufruf neu fassen (Schluss: Send-Satz oder nichts).
+
 ## Teil C – Wo liegt was
 - Videos: `sherka-variants/` (V1–V16, `voice-tests/`).
 - Vorlagen: `code-video/templates/` (u. a. `viral_reel`, `kosten_reel`, `unsichtbar_reel`, `handwerker_reel`, `salon_reel`, `anruf_reel`).

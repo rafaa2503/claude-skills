@@ -74,6 +74,9 @@ Ablauf
 - Wenn Raffa „echten Clip“ sagt: fremden Original-Clip **1:1** verwenden (z. B. Ei-Clip 0–2,13 s, ohne Insta-UI), nicht in 3D nachbauen. Melde-Risiko (Urheberrecht) einmal nennen, Entscheidung bleibt bei Raffa.
 
 Inhalt
+- **Antwort hinauszögern:** Nach dem Hook nicht sofort auflösen. Erst eine zweite Frage oder ein Re-Hook („das ist nicht mal das Schlimmste“), dann die Auflösung, und **direkt nach der Auflösung endet das Video** (kein Nachspann ausser „Schreib uns.“ + Logo). Quelle: @viewcci, Halte-Kurve.
+- Starke statt weiche Sätze: nicht „Heute zeige ich dir…“, sondern „Das ist der beste Weg…“; nicht „Ich bin kein Experte, aber“, sondern „Das hat funktioniert“. „Folge für Teil 2“ bleibt bei uns verboten (keine Serie).
+- Sound gehört zum Inhalt: Knall auf Hook, Riser davor, Wusch auf Schnitte, Pop auf Einblendungen (Tabelle `code-video` §13).
 - Hook verspricht **genau das, was das Video liefert**. Aufruf (Erstgespräch / „Schreib uns.“) erst am Schluss.
 - Spannung statt Erklärung. Nichts Offensichtliches erklären, keine Erklärsätze im Bild („Diese Pizzeria gibt es nicht“).
 - **Keine Serie** (Teil 1/2), **kein Kommentar-Aufruf**, Wort **„Wirt“ nie**.

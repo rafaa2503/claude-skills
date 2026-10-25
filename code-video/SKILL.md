@@ -151,3 +151,18 @@ Engine chosen by `video-engine-picker`: `video-hyperframes` (fast text swaps, cu
 - Ausgabe **stumm** + optional Vorschau mit Fremdton nur zum Timing; Raffa legt den Trend-Sound in der App drunter.
 - Melde-Risiko des fremden Clips einmal nennen. Texte/Verbote: `reel-marketing` §9.
 
+## 13. Sound-Design: welcher Effekt wofür (Raffa-Regel + Vorlagen @viewcci, @martinwang.mp4, Okt. 2026)
+Jede Bewegung im Bild bekommt ihren Sound, sonst wirkt der Schnitt wie ein Schnitt. SFX ins Video einbacken, Trend-Song legt Raffa in der App drunter.
+| Bildereignis | Sound | Hinweis |
+|---|---|---|
+| Hook-Schnitt | Bass Drop / Knall | 60–80 ms Stille davor, deutlich lauter als alles andere. Weglassen, wenn der Trend-Song selbst dort droppt |
+| Spannung vor Hook/Auflösung | Riser (UI riser bei UI-Clips) | endet genau auf dem Schnitt |
+| Zoom, Kamerafahrt, Übergang | Woosh / Clean whoosh, „Deep woosh“ bei Blur-Übergang | leiser als der Knall |
+| Pop-up, Karte, Button erscheint | Pop + Click | kurz, trocken |
+| Texttafel erscheint | Typing (Schreibmaschinen-Text), Kamera-Auslöser/Burst (Text-Flash, Schriftwechsel) | Animation und Sound auf denselben Frame |
+| Foto/Screenshot-Übergang | Camera Shutter / Flash, Papier reissen bei Riss-Übergang | |
+| Grosse Enthüllung, Logo | Magic Reveal / Glass Shine | heller Ton aufs Logo |
+| Liste, Aufzählung | Finger Snap / Drum Roll | sparsam |
+Quellen: Paket „RE SFX Free package“ (Raffas Drive, Dateien von Raffa in den Chat laden lassen, Drive ist in der Sandbox gesperrt). Ohne Dateien synthetisch (`entwurf-reel-ei/_quelle/sound-v4-knall.py`). Claude hört nicht: Lautheit per `ebur128` und RMS-Raster an den Schnittzeiten prüfen, Raffa beurteilt.
+Hintergrund-Song nach Stimmung (nur Vorschlag an Raffa, er wählt in der App): erklärend → Dark Red, New Computers, Every Living Breathing Moment, THANK YOU (Tyler); Geschichte → Skyfall, Runaway, Missing Textures; ruhig/tief → Mrs Magic, Mice on Venus. Achtung: Business-Konto @sherka.ch bekommt viele Chart-Songs in der App nicht angeboten.
+
